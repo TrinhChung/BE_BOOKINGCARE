@@ -22,31 +22,31 @@
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
 
-    <div class="container">
-        <div class="row ">
+    <div className="container">
+        <div className="row ">
 
-            <form class=" row g-3 mt-5" action="/put-crud/?id=<%=user.id%>" method="POST">
-                <div class="col-12 fs-3">Edit user</div>
+            <form className=" row g-3 mt-5" action="/put-crud/?id=<%=user.id%>" method="POST">
+                <div className="col-12 fs-3">Edit user</div>
 
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="firstName" value="<%= user.firstName%>">
+                <div className="col-md-6">
+                    <label for="inputEmail4" className="form-label">First Name</label>
+                    <input type="text" className="form-control" name="firstName" value="<%= user.firstName%>">
                 </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">LastName</label>
-                    <input type="text" class="form-control" name="lastName" value="<%= user.lastName%>">
+                <div className="col-md-6">
+                    <label for="inputPassword4" className="form-label">LastName</label>
+                    <input type="text" className="form-control" name="lastName" value="<%= user.lastName%>">
                 </div>
-                <div class="col-12">
-                    <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" name="address" class="form-control" placeholder="1234 Main St"
+                <div className="col-12">
+                    <label for="inputAddress" className="form-label">Address</label>
+                    <input type="text" name="address" className="form-control" placeholder="1234 Main St"
                         value="<%= user.address%>">
                 </div>
 
 
 
 
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Updated</button>
+                <div className="col-12">
+                    <button type="submit" className="btn btn-primary">Updated</button>
                 </div>
             </form>
         </div>
