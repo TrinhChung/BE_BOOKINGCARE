@@ -62,23 +62,36 @@ let getAllDoctors = () => {
   });
 };
 
+let checkRequiredParameters = (data) => {
+  let arr = [
+    "doctorId",
+    "contentHTML",
+    "contentMarkdown",
+    "action",
+    "selectedPrice",
+    "selectedPayment",
+    "selectedProvince",
+    "nameClinic",
+    "addressClinic",
+    "selectedSpecialty",
+  ];
+  for (let i = 0; i < arr.length; i++) {
+    if (!data[arr[i]]) {
+      return { check: false, field: arr[i] };
+    }
+  }
+
+  return { check: true, field: "" };
+};
+
 let saveDetailInfoDoctor = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (
-        !data ||
-        !data.contentHTML ||
-        !data.contentMarkdown ||
-        !data.action ||
-        !data.selectedPrice ||
-        !data.selectedPayment ||
-        !data.selectedProvince ||
-        !data.nameClinic ||
-        !data.addressClinic
-      ) {
+      let checkField = checkRequiredParameters(data);
+      if (!data || !checkField.check) {
         resolve({
           errCode: 1,
-          errMessage: "Missing parameter",
+          errMessage: `Missing parameter: ${checkField.field}`,
         });
       } else {
         if (data.action === "CREATE") {
@@ -113,6 +126,8 @@ let saveDetailInfoDoctor = (data) => {
           res.paymentId = data.selectedPayment;
           res.nameClinic = data.nameClinic;
           res.addressClinic = data.addressClinic;
+          res.specialtyId = data.selectedSpecialty;
+          res.clinicId = data.selectedClinic;
           res.note = data.note;
           await res.save();
         } else {
@@ -123,6 +138,8 @@ let saveDetailInfoDoctor = (data) => {
             paymentId: data.selectedPayment,
             nameClinic: data.nameClinic,
             addressClinic: data.addressClinic,
+            specialtyId: data.selectedSpecialty,
+            clinicId: data.selectedClinic,
             note: data.note,
           });
         }
@@ -187,6 +204,11 @@ let getDetailDoctorById = (id) => {
                   model: db.AllCode,
                   as: "provinceData",
                   attributes: ["valueEn", "valueVi"],
+                },
+                {
+                  model: db.Specialty,
+                  as: "specialtyData",
+                  attributes: ["id", "name"],
                 },
               ],
             },

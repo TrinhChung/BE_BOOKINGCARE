@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "keyMap",
         as: "provinceData",
       });
+
+      DoctorInfo.belongsTo(models.Specialty, {
+        foreignKey: "specialtyId",
+        as: "specialtyData",
+      });
     }
   }
   DoctorInfo.init(
@@ -26,6 +31,8 @@ module.exports = (sequelize, DataTypes) => {
       doctorId: DataTypes.INTEGER,
       priceId: DataTypes.STRING,
       provinceId: DataTypes.STRING,
+      specialtyId: DataTypes.INTEGER,
+      clinicId: DataTypes.INTEGER,
       paymentId: DataTypes.STRING,
       addressClinic: DataTypes.STRING,
       nameClinic: DataTypes.STRING,
