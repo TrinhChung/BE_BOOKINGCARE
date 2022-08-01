@@ -59,9 +59,68 @@ let getDetailDoctorById = async (req, res) => {
   }
 };
 
+let bulkCreateSchedule = async (req, res) => {
+  try {
+    let info = await doctorService.bulkCreateScheduleService(req.body);
+    return res.status(200).json(info);
+  } catch (error) {
+    console.log("Bulk create schedule service error: ", error);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from the server",
+    });
+  }
+};
+
+let getScheduleDoctorByDate = async (req, res) => {
+  try {
+    let info = await doctorService.getScheduleByDateService(
+      req.query.doctorId,
+      req.query.date
+    );
+    return res.status(200).json(info);
+  } catch (error) {
+    console.log("getScheduleDoctorByDate error: ", error);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from the server",
+    });
+  }
+};
+
+let getExtraInfoDoctorById = async (req, res) => {
+  try {
+    let info = await doctorService.getExtraInfoDoctorByIdService(req.query.id);
+    return res.status(200).json(info);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from the server",
+    });
+  }
+};
+
+let getProfileDoctorById = async (req, res) => {
+  try {
+    let info = await doctorService.getProfileDoctorByIdService(req.query.id);
+    return res.status(200).json(info);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({
+      errCode: -1,
+      message: "Error from the server",
+    });
+  }
+};
+
 module.exports = {
   getTopDoctorHome: getTopDoctorHome,
   getAllDoctors: getAllDoctors,
   postInfoDoctor: postInfoDoctor,
   getDetailDoctorById: getDetailDoctorById,
+  bulkCreateSchedule: bulkCreateSchedule,
+  getScheduleDoctorByDate: getScheduleDoctorByDate,
+  getExtraInfoDoctorById: getExtraInfoDoctorById,
+  getProfileDoctorById: getProfileDoctorById,
 };
