@@ -127,7 +127,7 @@ let saveDetailInfoDoctor = (data) => {
           res.nameClinic = data.nameClinic;
           res.addressClinic = data.addressClinic;
           res.specialtyId = data.selectedSpecialty;
-          res.clinicId = data.selectedClinic;
+          res.clinicId = data.clinicId;
           res.note = data.note;
           await res.save();
         } else {
@@ -139,7 +139,7 @@ let saveDetailInfoDoctor = (data) => {
             nameClinic: data.nameClinic,
             addressClinic: data.addressClinic,
             specialtyId: data.selectedSpecialty,
-            clinicId: data.selectedClinic,
+            clinicId: data.clinicId,
             note: data.note,
           });
         }
@@ -208,6 +208,11 @@ let getDetailDoctorById = (id) => {
                 {
                   model: db.Specialty,
                   as: "specialtyData",
+                  attributes: ["id", "name"],
+                },
+                {
+                  model: db.Clinic,
+                  as: "clinicData",
                   attributes: ["id", "name"],
                 },
               ],
