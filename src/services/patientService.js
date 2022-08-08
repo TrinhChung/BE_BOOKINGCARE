@@ -17,6 +17,8 @@ let postBookAppointmentService = (data) => {
         !data.fullName ||
         !data.nameDoctor ||
         !data.time ||
+        !data.gender ||
+        !data.address ||
         !data.language
       ) {
         resolve({ errCode: 1, errMessage: "Missing parameter" });
@@ -34,7 +36,13 @@ let postBookAppointmentService = (data) => {
 
         const [user] = await db.User.findOrCreate({
           where: { email: data.email },
-          defaults: { email: data.email, roleId: "R3" },
+          defaults: {
+            email: data.email,
+            roleId: "R3",
+            gender: data.gender,
+            address: data.address,
+            firstName: data.fullName,
+          },
         });
 
         if (user) {
@@ -51,6 +59,7 @@ let postBookAppointmentService = (data) => {
               patientId: user.id,
               date: data.date,
               timeType: data.timeType,
+
               token: id,
             },
             raw: false,
