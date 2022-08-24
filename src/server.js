@@ -40,7 +40,7 @@ connectDB();
 viewEngine(app);
 initWebRoutes(app);
 
-let port = process.env.PORT || 1904;
+let port = process.env.PORT || 1940;
 
 app.listen(port, () => {
   console.log("listening on port: " + port);

@@ -4,6 +4,7 @@
     "password": "Chung@1904",
     "database": "test",
     "host": "127.0.0.1",
+    "port": 3307,
     "dialect": "mysql",
     "logging": false,
     "raw": true,

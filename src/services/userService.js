@@ -62,6 +62,12 @@ let handleUserLogin = (email, password) => {
 
 let checkUserEmail = (email) => {
   return new Promise(async (resolve, reject) => {
+    if (!email || email.length === 0) {
+      resolve({
+        errCode: 1,
+        errMessage: "Missing Email",
+      });
+    }
     try {
       let user = await db.User.findOne({ where: { email: email } });
       if (user) {
@@ -75,27 +81,56 @@ let checkUserEmail = (email) => {
   });
 };
 
-let getAllUsers = (userId) => {
+let getAllUsers = (page) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let users = "";
-      if (userId === "All") {
-        users = await db.User.findAll({
+      if (page === "all") {
+        let users = await db.User.findAll({
           attributes: {
-            exclude: ["password"],
+            exclude: ["password", "image"],
           },
           raw: true,
         });
-      } else if (userId && userId !== "All") {
-        users = await db.User.findOne({
-          where: { id: userId },
-          attributes: {
-            exclude: ["password"],
-          },
-          raw: true,
-        });
+        resolve(users);
       } else {
+        let limit = 10;
+        let offset = 0 + (page - 1) * limit;
+        let count = await db.User.count();
+        count = count % 10 === 0 ? count / 10 : parseInt(count / limit) + 1;
+        let users = await db.User.findAll({
+          attributes: {
+            exclude: ["password", "image"],
+          },
+          order: [["id", "DESC"]],
+          offset: offset,
+          limit: limit,
+          raw: true,
+        });
+
+        resolve({
+          errCode: 0,
+          data: {
+            countPage: count,
+            users: users,
+          },
+        });
       }
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+let getUserByIdService = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      users = await db.User.findOne({
+        where: { id: userId },
+        attributes: {
+          exclude: ["password"],
+        },
+        raw: true,
+      });
       resolve(users);
     } catch (error) {
       reject(error);
@@ -107,6 +142,8 @@ let createNewUser = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
       let check = await checkUserEmail(data.email);
+
+      let res = {};
       if (check === true) {
         return resolve({
           error: 1,
@@ -114,15 +151,15 @@ let createNewUser = (data) => {
         });
       } else {
         let hashPassword = await hashUserPassword(data.password);
-        await db.User.create({
+        res = await db.User.create({
           email: data.email,
           password: hashPassword,
           firstName: data.firstName,
           lastName: data.lastName,
-          address: data.address,
+          address: data.address ? data.address : "",
           phoneNumber: data.phoneNumber,
           gender: data.gender,
-          image: data.avatar,
+          image: data.avatar ? data.avatar : "",
           roleId: data.role,
           positionId: data.position,
         });
@@ -131,6 +168,7 @@ let createNewUser = (data) => {
       resolve({
         errCode: 0,
         message: "ok",
+        user: res,
       });
     } catch (error) {
       reject(error);
@@ -232,4 +270,5 @@ module.exports = {
   deleteUser: deleteUser,
   updateUserData: updateUserData,
   getAllCodeService: getAllCodeService,
+  getUserByIdService: getUserByIdService,
 };

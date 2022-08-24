@@ -20,6 +20,18 @@ let handleLogin = async (req, res) => {
 };
 
 let handleGetAllUsers = async (req, res) => {
+  if (!req.query.page || req.query.page === "undefined") {
+    return res.status(400).json({
+      error: 1,
+      errMessage: "missing params page",
+    });
+  }
+  let page = req.query.page;
+  let users = await userService.getAllUsers(page);
+  return res.status(200).json(users);
+};
+
+let handleGetUserById = async (req, res) => {
   let id = req.query.id;
   if (!id) {
     return res.status(404).json({
@@ -28,12 +40,13 @@ let handleGetAllUsers = async (req, res) => {
       users: [],
     });
   }
-  let users = await userService.getAllUsers(id);
+
+  let user = await userService.getUserByIdService(id);
 
   return res.status(200).json({
     errCode: 0,
     errMessage: "OK",
-    users: users,
+    user: user,
   });
 };
 
@@ -79,4 +92,5 @@ module.exports = {
   handleEditUser: handleEditUser,
   handleDeleteUser: handleDeleteUser,
   getAllCode: getAllCode,
+  handleGetUserById: handleGetUserById,
 };
