@@ -55,6 +55,70 @@ let getBodyHTMLEmail = (data) => {
   }
 };
 
+let sendBillEmail = async (data) => {
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.EMAIL_APP, // generated ethereal user
+      pass: process.env.EMAIL_APP_PASSWORD,
+    },
+  });
+
+  // send mail with defined transport object
+  let info = await transporter.sendMail(getBodyBillHTMLEmail(data));
+};
+
+let getBodyBillHTMLEmail = (data) => {
+  if (data.language === "vi") {
+    return {
+      from: '"Booking Care" <bookingcare@gmail.com>', // sender address
+      to: data.email, // list of receivers
+      subject: "Thông tin đặt lịch khám bệnh", // Subject line
+      html: `
+                <h3>Xin chào ${data.patientName}!</h3>
+                <P>Chúng tôi xin gửi đến bạn thông tin hóa đơn khám bệnh:</P>
+                <div><b>Thời gian: ${data.time}</b></div>
+                <div><b>Bác sĩ: ${data.doctorName}</b></div>
+                <p>Bạn có thể xem chi tiết thông tin hóa khám bệnh tại file đính kèm!</p>
+                <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+            `, // html body
+      attachments: [
+        {
+          filename: "Bill" + ".xlsx",
+          content: Buffer.from(data.file),
+          contentType: "application/octet-stream",
+        },
+      ],
+    };
+  } else {
+    return {
+      from: '"Booking Care" <bookingcare@gmail.com>', // sender address
+      to: data.email, // list of receivers
+      subject: "Thông tin đặt lịch khám bệnh", // Subject line
+      html: `
+                <h3>Xin chào ${data.patientName}!</h3>
+                <P>Chúng tôi xin gửi đến bạn thông tin hóa đơn khám bệnh:</P>
+                <div><b>Thời gian: ${data.time}</b></div>
+                <div><b>Bác sĩ: ${data.doctorName}</b></div>
+        
+                <p>Bạn có thể xem chi tiết thông tin khám bệnh tại file đính kèm!</p>
+        
+                <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+            `, // html body
+      attachments: [
+        {
+          filename: "Bill" + ".xlsx",
+          content: Buffer.from(data.file),
+          contentType: "application/octet-stream",
+        },
+      ],
+    };
+  }
+};
+
 module.exports = {
   sendSimpleEmail: sendSimpleEmail,
+  sendBillEmail: sendBillEmail,
 };

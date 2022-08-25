@@ -66,6 +66,11 @@ let initWebRoutes = (app) => {
   );
 
   router.post(
+    "/api/patient-book-doctor-accept",
+    patientController.postBookDoctorAccept
+  );
+
+  router.post(
     `/api/create-new-specialty`,
     specialtyController.createNewSpecialty
   );

@@ -4,8 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class Booking extends Model {
     static associate(models) {
       Booking.belongsTo(models.User, {
-        foreignKey: "patientId",
+        foreignKey: { allowNull: false, name: "patientId" },
         as: "patientData",
+      });
+
+      Booking.belongsTo(models.User, {
+        foreignKey: "doctorId",
+        as: "doctorPatientData",
       });
 
       Booking.belongsTo(models.AllCode, {

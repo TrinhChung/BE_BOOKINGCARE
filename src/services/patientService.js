@@ -1,4 +1,7 @@
 import db from "../models/index";
+import moment from "moment";
+import localization from "moment/locale/vi";
+
 import emailService from "./emailService";
 import { v4 as uuidv4 } from "uuid";
 
@@ -108,7 +111,86 @@ let postVerifyBookAppointmentService = (token, id) => {
   });
 };
 
+let LetterCapitalize = (str) => {
+  return str
+    .split(" ")
+    .map((item) => item.substring(0, 1).toUpperCase() + item.substring(1))
+    .join(" ");
+};
+
+let postBookDoctorAcceptService = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      if (!data.file || !data.id || !data.language) {
+        resolve({ errCode: 1, errMessage: "Missing parameter" });
+      } else {
+        let patient = await db.Booking.findOne({
+          where: { id: data.id },
+          include: [
+            {
+              model: db.User,
+              attributes: ["email", "firstName"],
+              as: "patientData",
+            },
+            {
+              model: db.User,
+              attributes: ["email", "firstName", "lastName"],
+              as: "doctorPatientData",
+            },
+            {
+              model: db.AllCode,
+              attributes: ["valueVi", "valueEn"],
+              as: "timeTypeDataBooking",
+            },
+          ],
+          raw: false,
+          nest: true,
+        });
+
+        let date =
+          data.language === "vi"
+            ? patient.timeTypeDataBooking.valueVi +
+              " " +
+              LetterCapitalize(
+                moment(new Date(+patient.date)).format("dddd-DD/MM/YYYY")
+              )
+            : patient.timeTypeDataBooking.valueEn +
+              " " +
+              moment(new Date(+patient.date))
+                .locale("en")
+                .format("dddd-DD/MM/YYYY");
+
+        patient.statusId = "S3";
+        let nameDoctor =
+          data.language === "vi"
+            ? patient.doctorPatientData.firstName +
+              " " +
+              patient.doctorPatientData.lastName
+            : patient.doctorPatientData.lastName +
+              " " +
+              patient.doctorPatientData.firstName;
+        await patient.save();
+        let res = await emailService.sendBillEmail({
+          email: patient.patientData.email,
+          patientName: patient.patientData.firstName,
+          time: date,
+          doctorName: nameDoctor,
+          language: data.language,
+          file: data.file,
+        });
+        console.log(res);
+
+        resolve({ errCode: 0, errMessage: "Save user success" });
+        // resolve({ data: patient, date: date, nameDoctor: nameDoctor });
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   postBookAppointmentService: postBookAppointmentService,
   postVerifyBookAppointmentService: postVerifyBookAppointmentService,
+  postBookDoctorAcceptService: postBookDoctorAcceptService,
 };

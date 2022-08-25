@@ -116,13 +116,25 @@ let getProfileDoctorById = async (req, res) => {
 
 let getListPatientForDoctor = async (req, res) => {
   try {
+    if (
+      !req.query ||
+      !req.query.doctorId ||
+      !req.query.date ||
+      !req.query.page
+    ) {
+      return res.status(200).json({
+        errCode: 1,
+        errMessage: "Messing params",
+      });
+    }
     let info = await doctorService.getListPatientForDoctorService(
       req.query.doctorId,
-      req.query.date
+      req.query.date,
+      req.query.page
     );
     return res.status(200).json(info);
   } catch (error) {
-    console.log(error);
+    console.log("ERR: ", error);
     return res.status(200).json({
       errCode: -1,
       message: "Error from the server",
