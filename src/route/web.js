@@ -93,6 +93,12 @@ let initWebRoutes = (app) => {
     doctorController.getListPatientForDoctor
   );
 
+  router.post(`/api/create-new-handbook`, doctorController.createNewHandleBook);
+
+  router.get(`/api/get-handbooks`, doctorController.getHandBook);
+
+  router.get(`/api/get-detail-handbooks`, doctorController.getDetailHandBook);
+
   return app.use("/", router);
 };
 

@@ -142,6 +142,50 @@ let getListPatientForDoctor = async (req, res) => {
   }
 };
 
+let createNewHandleBook = async (req, res) => {
+  try {
+    let response = await doctorService.createNewHandleBookService(req.body);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({
+      errCode: -1,
+      errMessage: "Err from the server",
+    });
+  }
+};
+
+let getHandBook = async (req, res) => {
+  try {
+    let response = await doctorService.getHandBookService();
+    return res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({
+      errCode: -1,
+      errMessage: "Err from the server",
+    });
+  }
+};
+
+let getDetailHandBook = async (req, res) => {
+  try {
+    if (req.query.id === undefined) {
+      return res
+        .status(200)
+        .json({ errCode: -1, errMessage: "Missing query ID" });
+    }
+    let response = await doctorService.getDetailHandBookService(req.query.id);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({
+      errCode: -1,
+      errMessage: "Err from the server",
+    });
+  }
+};
+
 module.exports = {
   getTopDoctorHome: getTopDoctorHome,
   getAllDoctors: getAllDoctors,
@@ -152,4 +196,7 @@ module.exports = {
   getExtraInfoDoctorById: getExtraInfoDoctorById,
   getProfileDoctorById: getProfileDoctorById,
   getListPatientForDoctor: getListPatientForDoctor,
+  createNewHandleBook: createNewHandleBook,
+  getHandBook: getHandBook,
+  getDetailHandBook: getDetailHandBook,
 };
