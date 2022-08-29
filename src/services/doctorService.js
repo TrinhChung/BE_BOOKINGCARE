@@ -30,6 +30,15 @@ let getTopDoctorHome = (limit) => {
         nest: true,
       });
 
+      if (users && users.length > 0) {
+        users = users.map((item) => {
+          if (item && item.image) {
+            item.image = new Buffer(item.image, "base64").toString("binary");
+          }
+          return item;
+        });
+      }
+
       resolve({
         errCode: 0,
         data: users,

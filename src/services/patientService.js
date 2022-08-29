@@ -36,12 +36,14 @@ let postBookAppointmentService = (data) => {
           link: buildUrlEmail(id, data.doctorId),
           language: data.language,
         });
+        let hashPassword = await hashUserPassword("123456");
 
         const [user] = await db.User.findOrCreate({
           where: { email: data.email },
           defaults: {
             email: data.email,
             roleId: "R3",
+            password: hashPassword,
             gender: data.gender,
             address: data.address,
             firstName: data.fullName,

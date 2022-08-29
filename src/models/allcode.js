@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       valueEn: DataTypes.STRING,
       valueVi: DataTypes.STRING,
+      valueJp: DataTypes.STRING,
     },
     {
       sequelize,
