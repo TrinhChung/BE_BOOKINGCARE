@@ -18,12 +18,12 @@ let getTopDoctorHome = (limit) => {
           {
             model: db.AllCode,
             as: "positionData",
-            attributes: ["valueEn", "valueVi"],
+            attributes: ["valueEn", "valueVi", "valueJp"],
           },
           {
             model: db.AllCode,
             as: "genderData",
-            attributes: ["valueEn", "valueVi"],
+            attributes: ["valueEn", "valueVi", "valueJp"],
           },
         ],
         raw: true,
@@ -186,12 +186,12 @@ let getDetailDoctorById = (id) => {
             {
               model: db.AllCode,
               as: "positionData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.AllCode,
               as: "genderData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.DoctorInfo,
@@ -202,17 +202,17 @@ let getDetailDoctorById = (id) => {
                 {
                   model: db.AllCode,
                   as: "priceData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
                 {
                   model: db.AllCode,
                   as: "paymentData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
                 {
                   model: db.AllCode,
                   as: "provinceData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
                 {
                   model: db.Specialty,
@@ -304,7 +304,7 @@ let getScheduleByDateService = async (doctorId, date) => {
             {
               model: db.AllCode,
               as: "timeTypeData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
           ],
           raw: true,
@@ -332,17 +332,17 @@ let getExtraInfoDoctorByIdService = (doctorId) => {
             {
               model: db.AllCode,
               as: "priceData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.AllCode,
               as: "paymentData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.AllCode,
               as: "provinceData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
           ],
           raw: false,
@@ -380,12 +380,12 @@ let getProfileDoctorByIdService = (id) => {
             {
               model: db.AllCode,
               as: "positionData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.AllCode,
               as: "genderData",
-              attributes: ["valueEn", "valueVi"],
+              attributes: ["valueEn", "valueVi", "valueJp"],
             },
             {
               model: db.DoctorInfo,
@@ -396,17 +396,17 @@ let getProfileDoctorByIdService = (id) => {
                 {
                   model: db.AllCode,
                   as: "priceData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
                 {
                   model: db.AllCode,
                   as: "paymentData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
                 {
                   model: db.AllCode,
                   as: "provinceData",
-                  attributes: ["valueEn", "valueVi"],
+                  attributes: ["valueEn", "valueVi", "valueJp"],
                 },
               ],
             },
