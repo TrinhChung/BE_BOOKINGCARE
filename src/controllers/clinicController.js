@@ -28,7 +28,7 @@ let getClinic = async (req, res, next) => {
 let getDetailClinic = async (req, res, next) => {
   try {
     let info = await clinicService.getDetailClinicService(
-      req.query.id,
+      req.params.id,
       req.query.province
     );
     return res.status(200).json(info);

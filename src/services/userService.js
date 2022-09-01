@@ -124,13 +124,14 @@ let getAllUsers = (page) => {
 let getUserByIdService = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
-      users = await db.User.findOne({
+      let users = await db.User.findOne({
         where: { id: userId },
         attributes: {
           exclude: ["password"],
         },
         raw: true,
       });
+      if (!users) users = {};
       resolve(users);
     } catch (error) {
       reject(error);

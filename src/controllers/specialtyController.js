@@ -28,7 +28,7 @@ let getSpecialty = async (req, res, next) => {
 let getDetailSpecialty = async (req, res, next) => {
   try {
     let info = await specialtyService.getDetailSpecialtyService(
-      req.query.id,
+      req.params.id,
       req.query.province
     );
     return res.status(200).json(info);

@@ -6,7 +6,7 @@ import emailService from "./emailService";
 import { v4 as uuidv4 } from "uuid";
 
 let buildUrlEmail = (token, doctorId) => {
-  let result = `${process.env.URL_REACT}/verify-book-appointment/${token}&${doctorId}`;
+  let result = `${process.env.URL_REACT}/api/patient/verify-book-appointment/${token}&${doctorId}`;
   return result;
 };
 let postBookAppointmentService = (data) => {

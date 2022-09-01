@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
-import initWebRoutes from "./route/web";
+import { router } from "./route";
 import connectDB from "./config/connectDB";
 import cors from "cors";
 require("dotenv").config();
@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ limit: "10mb" }));
 connectDB();
 
 viewEngine(app);
-initWebRoutes(app);
+app.use("/api", router);
 
 let port = process.env.PORT || 1940;
 

@@ -32,7 +32,7 @@ let handleGetAllUsers = async (req, res) => {
 };
 
 let handleGetUserById = async (req, res) => {
-  let id = req.query.id;
+  let id = req.params.id;
   if (!id) {
     return res.status(404).json({
       errCode: 1,
@@ -62,7 +62,7 @@ let handleEditUser = async (req, res) => {
 };
 
 let handleDeleteUser = async (req, res) => {
-  if (!req.body.id) {
+  if (!req.params.id) {
     return res.status(200).json({
       errCode: 1,
       errMessage: "Missing required parameter",
