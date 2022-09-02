@@ -7,6 +7,7 @@ import { router as clinic } from "./clinic";
 import { router as allCode } from "./allCode";
 import { router as schedule } from "./schedule";
 import { router as handbook } from "./handbook";
+import { router as auth } from "./auth";
 
 export const router = Router();
 
@@ -18,3 +19,4 @@ router.use("/clinic", clinic);
 router.use("/all-code", allCode);
 router.use("/schedule", schedule);
 router.use("/handbook", handbook);
+router.use("/auth", auth);
