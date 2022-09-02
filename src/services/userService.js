@@ -1,7 +1,9 @@
 import db from "../models/index";
 import bcrypt from "bcryptjs";
 import { raw } from "body-parser";
-
+import jwt from "jsonwebtoken";
+import { USER_ROLE } from "../constant";
+require("dotenv").config();
 const salt = bcrypt.genSaltSync(10);
 
 let hashUserPassword = (password) => {
@@ -38,9 +40,14 @@ let handleUserLogin = (email, password) => {
           let check = await bcrypt.compareSync(password, user.password);
           if (check) {
             userData.errCode = 0;
+            let token = await jwt.sign(
+              { id: user.id },
+              process.env.SECRECT_TOKEN
+            );
             delete user.password;
             userData.errMessage = "OK";
             userData.user = user;
+            userData.token = token;
           } else {
             userData.errCode = 3;
             userData.errMessage = "Wrong password";
@@ -161,16 +168,23 @@ let createNewUser = (data) => {
           phoneNumber: data.phoneNumber,
           gender: data.gender,
           image: data.avatar ? data.avatar : "",
-          roleId: data.role,
-          positionId: data.position,
+          roleId: data.role ? data.role : USER_ROLE.USER,
+          positionId: data.position ? data.position : "P0",
         });
+        delete res["password"];
       }
 
-      resolve({
+      let buildData = {
         errCode: 0,
         message: "ok",
         user: res,
-      });
+      };
+      if (buildData.user) {
+        let token = await jwt.sign({ id: res.id }, process.env.SECRECT_TOKEN);
+        buildData.token = token;
+      }
+
+      resolve(buildData);
     } catch (error) {
       reject(error);
     }

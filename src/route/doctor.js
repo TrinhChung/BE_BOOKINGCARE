@@ -1,5 +1,7 @@
 import { Router } from "express";
 import doctorController from "../controllers/doctorController";
+import { authenticate, allowUser } from "../middleware/authenticate";
+import { USER_ROLE } from "../constant";
 
 export const router = Router();
 
@@ -15,4 +17,9 @@ router.get("/extra/:id", doctorController.getExtraInfoDoctorById);
 
 router.get("/:id", doctorController.getProfileDoctorById);
 
-router.get("/get-patients/:id", doctorController.getListPatientForDoctor);
+router.get(
+  "/get-patients/:id",
+  authenticate,
+  allowUser([USER_ROLE.ADMIN, USER_ROLE.DOCTOR]),
+  doctorController.getListPatientForDoctor
+);

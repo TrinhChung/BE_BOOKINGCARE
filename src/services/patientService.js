@@ -1,6 +1,9 @@
 import db from "../models/index";
 import moment from "moment";
+import bcrypt from "bcryptjs";
+
 import localization from "moment/locale/vi";
+const salt = bcrypt.genSaltSync(10);
 
 import emailService from "./emailService";
 import { v4 as uuidv4 } from "uuid";
@@ -9,6 +12,18 @@ let buildUrlEmail = (token, doctorId) => {
   let result = `${process.env.URL_REACT}/api/patient/verify-book-appointment/${token}&${doctorId}`;
   return result;
 };
+
+let hashUserPassword = (password) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      var hash = await bcrypt.hashSync(password, salt);
+      resolve(hash);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 let postBookAppointmentService = (data) => {
   return new Promise(async (resolve, reject) => {
     try {

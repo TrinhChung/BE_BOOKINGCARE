@@ -7,16 +7,13 @@ let handleLogin = async (req, res) => {
   if (!email || !password) {
     return res.status(500).json({
       errCode: 1,
-      message: "Missing inputs parameters!",
+      errMessage: "Missing inputs parameters!",
     });
   }
 
   let userData = await userService.handleUserLogin(email, password);
-  return res.status(200).json({
-    errCode: userData.errCode,
-    message: userData.errMessage,
-    user: userData.user ? userData.user : {},
-  });
+
+  return res.status(200).json(userData);
 };
 
 let handleGetAllUsers = async (req, res) => {
@@ -51,8 +48,8 @@ let handleGetUserById = async (req, res) => {
 };
 
 let handleCreateNewUser = async (req, res) => {
-  let message = await userService.createNewUser(req.body);
-  return res.status(200).json(message);
+  let data = await userService.createNewUser(req.body);
+  return res.status(200).json(data);
 };
 
 let handleEditUser = async (req, res) => {
