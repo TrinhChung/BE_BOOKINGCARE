@@ -4,6 +4,7 @@ import { authenticate, allowUser } from "../middleware/authenticate";
 import { USER_ROLE } from "../constant";
 
 export const router = Router();
+router.use(authenticate);
 
 router.get("/top-doctor-home", doctorController.getTopDoctorHome);
 
@@ -19,7 +20,6 @@ router.get("/:id", doctorController.getProfileDoctorById);
 
 router.get(
   "/get-patients/:id",
-  authenticate,
   allowUser([USER_ROLE.ADMIN, USER_ROLE.DOCTOR]),
   doctorController.getListPatientForDoctor
 );

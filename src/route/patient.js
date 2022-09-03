@@ -1,5 +1,6 @@
 import { Router } from "express";
 import patientController from "../controllers/patientController";
+import { authenticate } from "../middleware/authenticate";
 
 export const router = Router();
 
@@ -10,4 +11,8 @@ router.get(
   patientController.postVerifyBookAppointment
 );
 
-router.post("/booking-doctor-accept", patientController.postBookDoctorAccept);
+router.post(
+  "/booking-doctor-accept",
+  authenticate,
+  patientController.postBookDoctorAccept
+);

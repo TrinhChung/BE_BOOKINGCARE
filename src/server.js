@@ -7,7 +7,7 @@ import cors from "cors";
 require("dotenv").config();
 
 let app = express();
-// app.use(cors({ origin: true }));
+app.use(cors({ origin: true }));
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader("Access-Control-Allow-Origin", process.env.URL_REACT);
@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
   // Request headers you wish to allow
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
 
   // Set to true if you need the website to include cookies in the requests sent

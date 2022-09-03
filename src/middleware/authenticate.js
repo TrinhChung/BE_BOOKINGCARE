@@ -26,7 +26,7 @@ export const authenticate = async (req, res, next) => {
     }
   } catch (err) {
     console.error(err);
-    res.status(401).json("failed to find user");
+    res.status(401).json("User not allow");
   }
 };
 
