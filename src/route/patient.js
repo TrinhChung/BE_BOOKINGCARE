@@ -1,6 +1,7 @@
 import { Router } from "express";
 import patientController from "../controllers/patientController";
-import { authenticate } from "../middleware/authenticate";
+import { authenticate, allowUser } from "../middleware/authenticate";
+import { USER_ROLE } from "../constant";
 
 export const router = Router();
 

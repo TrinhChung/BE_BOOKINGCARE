@@ -10,7 +10,11 @@ router.get("/top-doctor-home", doctorController.getTopDoctorHome);
 
 router.get("/", doctorController.getAllDoctors);
 
-router.post("/", doctorController.postInfoDoctor);
+router.post(
+  "/",
+  allowUser([USER_ROLE.ADMIN, USER_ROLE.DOCTOR]),
+  doctorController.postInfoDoctor
+);
 
 router.get("/detail/:id", doctorController.getDetailDoctorById);
 
