@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "positionId",
         as: "positionData",
       });
+      AllCode.hasMany(models.User, {
+        foreignKey: "roleId",
+        as: "roleData",
+      });
       AllCode.hasMany(models.User, { foreignKey: "gender", as: "genderData" });
       AllCode.hasMany(models.Schedule, {
         foreignKey: "timeType",

@@ -1,14 +1,23 @@
 import db from "../models/index";
 import _ from "lodash";
+import Sequelize from "sequelize";
 require("dotenv").config();
 let getTopDoctorHome = (limit) => {
   return new Promise(async (resolve, reject) => {
     try {
       let users = await db.User.findAll({
-        limit: limit,
-        order: [["createdAt", "DESC"]],
+        subQuery: false,
         attributes: {
           exclude: ["password"],
+          include: [
+            [
+              db.sequelize.fn(
+                "COUNT",
+                db.sequelize.literal("`doctorPatientData`.`statusId` = 'S3'")
+              ),
+              "bookingCount",
+            ],
+          ],
         },
         where: {
           roleId: "R2",
@@ -24,7 +33,17 @@ let getTopDoctorHome = (limit) => {
             as: "genderData",
             attributes: ["valueEn", "valueVi", "valueJp"],
           },
+          {
+            model: db.Booking,
+            as: "doctorPatientData",
+            attributes: ["id"],
+            required: false,
+            left: true,
+          },
         ],
+        limit: limit,
+        group: ["User.id"],
+        order: [[db.sequelize.literal("bookingCount"), "DESC"]],
         raw: true,
         nest: true,
       });
@@ -267,7 +286,7 @@ let getExtraInfoDoctorByIdService = (doctorId) => {
               attributes: ["valueEn", "valueVi", "valueJp"],
             },
           ],
-          raw: false,
+          raw: true,
           nest: true,
         });
         if (!data) data = {};

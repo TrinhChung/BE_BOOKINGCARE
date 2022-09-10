@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "keyMap",
         as: "genderData",
       });
+      User.belongsTo(models.AllCode, {
+        foreignKey: "roleId",
+        targetKey: "keyMap",
+        as: "roleData",
+      });
       User.hasOne(models.Markdown, {
         foreignKey: "doctorId",
       });
@@ -28,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
       User.hasMany(models.Booking, {
         foreignKey: "doctorId",
+        primaryKey: "id",
         as: "doctorPatientData",
       });
 
@@ -54,6 +60,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "User",
+      paranoid: false,
     }
   );
   return User;

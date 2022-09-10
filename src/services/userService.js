@@ -136,8 +136,26 @@ let getUserByIdService = (userId) => {
         attributes: {
           exclude: ["password"],
         },
+        include: [
+          {
+            model: db.AllCode,
+            as: "roleData",
+            attributes: ["valueEn", "valueVi", "valueJp"],
+          },
+          {
+            model: db.AllCode,
+            as: "genderData",
+            attributes: ["valueEn", "valueVi", "valueJp"],
+          },
+        ],
         raw: true,
+        nest: true,
       });
+      if (users && users.image) {
+        users.image = new Buffer(users.image, "base64").toString("binary");
+      } else {
+        delete user.image;
+      }
       if (!users) users = {};
       resolve(users);
     } catch (error) {

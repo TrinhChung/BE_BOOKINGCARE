@@ -6,7 +6,7 @@ import { USER_ROLE } from "../constant";
 export const router = Router();
 router.use(authenticate);
 
-router.get("/", userController.handleGetAllUsers);
+router.get("/", allowUser([USER_ROLE.ADMIN]), userController.handleGetAllUsers);
 
 router.get("/:id/", userController.handleGetUserById);
 

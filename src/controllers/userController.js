@@ -47,6 +47,24 @@ let handleGetUserById = async (req, res) => {
   });
 };
 
+let handleGetUserByToken = async (req, res) => {
+  let user = req.user;
+  if (user) {
+    let resData = await userService.getUserByIdService(user.id);
+    if (resData) {
+      return res.status(200).json({ errCode: 0, user: resData });
+    } else {
+      return res
+        .status(404)
+        .json({ errCode: 1, errMessage: "Not found user by token" });
+    }
+  } else {
+    return res
+      .status(404)
+      .json({ errCode: 1, errMessage: "Not found user by token" });
+  }
+};
+
 let handleCreateNewUser = async (req, res) => {
   let data = await userService.createNewUser(req.body);
   return res.status(200).json(data);
@@ -90,4 +108,5 @@ module.exports = {
   handleDeleteUser: handleDeleteUser,
   getAllCode: getAllCode,
   handleGetUserById: handleGetUserById,
+  handleGetUserByToken: handleGetUserByToken,
 };

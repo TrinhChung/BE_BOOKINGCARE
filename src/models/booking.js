@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       Booking.belongsTo(models.User, {
         foreignKey: "doctorId",
         as: "doctorPatientData",
+        constraints: false,
       });
 
       Booking.belongsTo(models.AllCode, {
@@ -32,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Booking",
+      paranoid: false,
     }
   );
   return Booking;
