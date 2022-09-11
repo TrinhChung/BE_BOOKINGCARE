@@ -1,6 +1,7 @@
 import db from "../models/index";
 import _ from "lodash";
 require("dotenv").config();
+import { Op } from "sequelize";
 const MAX_NUMBER_SCHEDULE = process.env.MAX_NUMBER_SCHEDULE;
 
 let bulkCreateScheduleService = (data) => {
@@ -54,7 +55,13 @@ let getScheduleByDateService = async (doctorId, date) => {
         });
       } else {
         let data = await db.Schedule.findAll({
-          where: { doctorId: doctorId, date: date },
+          where: {
+            doctorId: doctorId,
+            date: date,
+            currentNumber: {
+              [Op.lt]: 10,
+            },
+          },
           include: [
             {
               model: db.AllCode,

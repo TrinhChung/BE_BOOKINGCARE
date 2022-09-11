@@ -1,6 +1,5 @@
 import db from "../models/index";
 import _ from "lodash";
-import Sequelize from "sequelize";
 require("dotenv").config();
 let getTopDoctorHome = (limit) => {
   return new Promise(async (resolve, reject) => {

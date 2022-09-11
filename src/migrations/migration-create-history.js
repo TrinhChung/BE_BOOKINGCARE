@@ -8,17 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      parentId: {
+      bookingId: {
         type: Sequelize.INTEGER,
-      },
-      doctorId: {
-        type: Sequelize.INTEGER,
-      },
-      description: {
-        type: Sequelize.TEXT,
       },
       files: {
-        type: Sequelize.TEXT,
+        type: Sequelize.BLOB("long"),
       },
 
       createdAt: {

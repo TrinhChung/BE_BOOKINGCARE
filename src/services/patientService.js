@@ -13,80 +13,54 @@ let buildUrlEmail = (token, doctorId) => {
   return result;
 };
 
-let hashUserPassword = (password) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      var hash = await bcrypt.hashSync(password, salt);
-      resolve(hash);
-    } catch (error) {
-      reject(error);
-    }
-  });
-};
-
-let postBookAppointmentService = (data) => {
+let postBookAppointmentService = (data, user) => {
   return new Promise(async (resolve, reject) => {
     try {
       if (
-        !data.email ||
         !data.doctorId ||
         !data.timeType ||
         !data.date ||
-        !data.fullName ||
         !data.nameDoctor ||
         !data.time ||
-        !data.gender ||
-        !data.address ||
-        !data.language
+        !data.language ||
+        !user
       ) {
         resolve({ errCode: 1, errMessage: "Missing parameter" });
       } else {
         let id = uuidv4();
 
+        let [booking, isCreate] = await db.Booking.findOrCreate({
+          where: {
+            patientId: user.id,
+            date: data.date,
+            timeType: data.timeType,
+            doctorId: data.doctorId,
+          },
+          defaults: {
+            statusId: "S1",
+            doctorId: data.doctorId,
+            patientId: user.id,
+            date: data.date,
+            timeType: data.timeType,
+            token: id,
+          },
+          raw: false,
+        });
+
+        if (!isCreate) {
+          resolve({ errCode: 1, errMessage: "Appointment already exists" });
+        }
+
         await emailService.sendSimpleEmail({
-          email: data.email,
-          patientName: data.fullName,
+          email: user.email,
+          patientName: user.lastName + " " + user.firstName,
           time: data.time,
           doctorName: data.nameDoctor,
           link: buildUrlEmail(id, data.doctorId),
           language: data.language,
         });
-        let hashPassword = await hashUserPassword("123456");
 
-        const [user] = await db.User.findOrCreate({
-          where: { email: data.email },
-          defaults: {
-            email: data.email,
-            roleId: "R3",
-            password: hashPassword,
-            gender: data.gender,
-            address: data.address,
-            firstName: data.fullName,
-          },
-        });
-
-        if (user) {
-          let [booking, isCreate] = await db.Booking.findOrCreate({
-            where: {
-              patientId: user.id,
-              date: data.date,
-              timeType: data.timeType,
-              doctorId: data.doctorId,
-            },
-            defaults: {
-              statusId: "S1",
-              doctorId: data.doctorId,
-              patientId: user.id,
-              date: data.date,
-              timeType: data.timeType,
-
-              token: id,
-            },
-            raw: false,
-          });
-        }
-
-        resolve({ errCode: 0, errMessage: "Save user success" });
+        resolve({ errCode: 0, errMessage: "Booking Success!" });
       }
     } catch (error) {
       reject(error);
@@ -109,8 +83,25 @@ let postVerifyBookAppointmentService = (token, id) => {
         });
 
         if (appointment) {
+          let schedule = await db.Schedule.findOne({
+            where: {
+              date: appointment.date,
+              timeType: appointment.timeType,
+              doctorId: appointment.doctorId,
+            },
+            raw: false,
+          });
+
           appointment.statusId = "S2";
           await appointment.save();
+          if (schedule) schedule.currentNumber = schedule.currentNumber + 1;
+          if (schedule.currentNumber > 10) {
+            resolve({
+              error: 2,
+              errMessage: "The maximum number of appointments has been reached",
+            });
+          }
+          await schedule.save();
           resolve({
             errCode: 0,
             errMessage: "Update appointment Success",
@@ -118,7 +109,7 @@ let postVerifyBookAppointmentService = (token, id) => {
         } else {
           resolve({
             error: 2,
-            errCode: "Appointment has been activated or does not exist",
+            errMessage: "Appointment has been activated or does not exist",
           });
         }
       }
@@ -187,7 +178,11 @@ let postBookDoctorAcceptService = (data) => {
               " " +
               patient.doctorPatientData.firstName;
         await patient.save();
-        let res = await emailService.sendBillEmail({
+        await db.History.create({
+          bookingId: patient.id,
+          files: data.file,
+        });
+        await emailService.sendBillEmail({
           email: patient.patientData.email,
           patientName: patient.patientData.firstName,
           time: date,
@@ -195,7 +190,6 @@ let postBookDoctorAcceptService = (data) => {
           language: data.language,
           file: data.file,
         });
-        console.log(res);
 
         resolve({ errCode: 0, errMessage: "Save user success" });
         // resolve({ data: patient, date: date, nameDoctor: nameDoctor });

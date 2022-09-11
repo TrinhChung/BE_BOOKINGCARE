@@ -241,7 +241,6 @@ let updateUserData = (data) => {
       }
       let user = await db.User.findOne({ where: { id: data.id }, raw: false });
       if (user) {
-        //   positionId: this.state.position,
         user.firstName = data.firstName;
         user.lastName = data.lastName;
         user.address = data.address;

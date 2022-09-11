@@ -1,11 +1,16 @@
 import { Router } from "express";
 import patientController from "../controllers/patientController";
-import { authenticate, allowUser } from "../middleware/authenticate";
-import { USER_ROLE } from "../constant";
+import { authenticate } from "../middleware/authenticate";
+import { checkUserBooking } from "../middleware/booking";
 
 export const router = Router();
 
-router.post("/appointment", patientController.postBookAppointment);
+router.post(
+  "/appointment",
+  authenticate,
+  checkUserBooking(),
+  patientController.postBookAppointment
+);
 
 router.get(
   `/verify-book-appointment`,

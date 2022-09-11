@@ -2,7 +2,10 @@ import patientService from "../services/patientService";
 
 let postBookAppointment = async (req, res) => {
   try {
-    let info = await patientService.postBookAppointmentService(req.body);
+    let info = await patientService.postBookAppointmentService(
+      req.body,
+      req.user
+    );
     return res.status(200).json(info);
   } catch (error) {
     console.log(error);

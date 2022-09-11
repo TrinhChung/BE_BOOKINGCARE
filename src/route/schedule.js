@@ -12,8 +12,4 @@ router.post(
   scheduleController.bulkCreateSchedule
 );
 
-router.get(
-  "/:doctorId/:date",
-  allowUser([USER_ROLE.ADMIN, USER_ROLE.DOCTOR]),
-  scheduleController.getScheduleDoctorByDate
-);
+router.get("/:doctorId/:date", scheduleController.getScheduleDoctorByDate);
