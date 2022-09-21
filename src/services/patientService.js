@@ -93,7 +93,6 @@ let postVerifyBookAppointmentService = (token, id) => {
           });
 
           appointment.statusId = "S2";
-          await appointment.save();
           if (schedule) schedule.currentNumber = schedule.currentNumber + 1;
           if (schedule.currentNumber > 10) {
             resolve({
@@ -101,6 +100,7 @@ let postVerifyBookAppointmentService = (token, id) => {
               errMessage: "The maximum number of appointments has been reached",
             });
           }
+          await appointment.save();
           await schedule.save();
           resolve({
             errCode: 0,
@@ -180,6 +180,7 @@ let postBookDoctorAcceptService = (data) => {
         await patient.save();
         await db.History.create({
           bookingId: patient.id,
+          patientId: patient.patientId,
           files: data.file,
         });
         await emailService.sendBillEmail({

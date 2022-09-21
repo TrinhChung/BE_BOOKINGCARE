@@ -33,7 +33,6 @@ module.exports = (sequelize, DataTypes) => {
 
       User.hasMany(models.Booking, {
         foreignKey: "doctorId",
-        primaryKey: "id",
         as: "doctorPatientData",
       });
 
@@ -41,6 +40,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id",
         targetKey: "doctorId",
         as: "doctorData",
+      });
+
+      User.hasMany(models.Favorite, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteData",
       });
     }
   }

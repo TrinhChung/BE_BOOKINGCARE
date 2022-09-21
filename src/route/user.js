@@ -13,7 +13,7 @@ router.get("/:id/", userController.handleGetUserById);
 router.put("/update", userController.handleEditUser);
 
 router.delete(
-  "/id",
+  "/:id",
   allowUser([USER_ROLE.ADMIN]),
   userController.handleDeleteUser
 );

@@ -5,22 +5,10 @@ let getTopDoctorHome = (limit) => {
   return new Promise(async (resolve, reject) => {
     try {
       let users = await db.User.findAll({
-        subQuery: false,
-        attributes: {
-          exclude: ["password"],
-          include: [
-            [
-              db.sequelize.fn(
-                "COUNT",
-                db.sequelize.literal("`doctorPatientData`.`statusId` = 'S3'")
-              ),
-              "bookingCount",
-            ],
-          ],
-        },
         where: {
           roleId: "R2",
         },
+        logging: true,
         include: [
           {
             model: db.AllCode,
@@ -35,16 +23,63 @@ let getTopDoctorHome = (limit) => {
           {
             model: db.Booking,
             as: "doctorPatientData",
-            attributes: ["id"],
+            where: { statusId: "S3" },
+            attributes: [],
+            // group: ["doctorPatientData.id"],
             required: false,
             left: true,
           },
+          // {
+          //   model: db.Favorite,
+          //   as: "favoriteData",
+          //   where: { keyMap: 1 },
+          //   attributes: [],
+          //   // group: ["favoriteData.id"],
+          //   required: false,
+
+          //   left: true,
+          // },
+          {
+            model: db.DoctorInfo,
+            attributes: ["specialtyId"],
+            include: [
+              {
+                model: db.Specialty,
+                as: "specialtyData",
+                attributes: ["name"],
+              },
+            ],
+          },
         ],
+        attributes: {
+          exclude: ["password"],
+          include: [
+            [
+              db.sequelize.fn(
+                "COUNT",
+                db.sequelize.col("doctorPatientData.statusId")
+              ),
+              "bookingCount",
+            ],
+            // [
+            //   db.sequelize.fn(
+            //     "COUNT",
+            //     db.sequelize.literal("favoriteData.keyMap")
+            //   ),
+            //   "favoriteCount",
+            // ],
+          ],
+        },
         limit: limit,
         group: ["User.id"],
-        order: [[db.sequelize.literal("bookingCount"), "DESC"]],
-        raw: true,
+        order: [
+          [db.sequelize.literal("bookingCount"), "DESC"],
+          // [db.sequelize.literal("favoriteCount"), "DESC"],
+        ],
+        raw: false,
         nest: true,
+        plain: false,
+        subQuery: false,
       });
 
       if (users && users.length > 0) {

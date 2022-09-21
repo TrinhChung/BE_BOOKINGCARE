@@ -40,6 +40,7 @@ let getSpecialtyService = () => {
       }
       resolve({ errCode: 0, errMessage: "Ok", data });
     } catch (error) {
+      console.log(error);
       reject(error);
     }
   });
