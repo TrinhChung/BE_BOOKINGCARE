@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       Specialty.hasMany(models.DoctorInfo, {
         as: "specialtyData",
       });
+      Specialty.hasOne(models.Markdown, {
+        foreignKey: "specialtyId",
+      });
     }
   }
   Specialty.init(

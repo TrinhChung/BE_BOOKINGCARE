@@ -67,13 +67,7 @@ let getDetailClinicService = (id, province) => {
 
         data = await db.Clinic.findOne({
           where: { id: id },
-          attributes: [
-            "descriptionHtml",
-            "descriptionMarkdown",
-            "name",
-            "address",
-            "image",
-          ],
+          attributes: ["name", "address", "image"],
           include: [
             {
               model: db.DoctorInfo,
@@ -82,6 +76,10 @@ let getDetailClinicService = (id, province) => {
               include: [
                 { model: db.User, attributes: ["lastName", "firstName"] },
               ],
+            },
+            {
+              model: db.Markdown,
+              attributes: ["contentHtml", "contentMarkdown"],
             },
           ],
           raw: false,

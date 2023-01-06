@@ -52,7 +52,6 @@ let getDetailSpecialtyService = (id, province) => {
         if (province === "all") {
           data = await db.Specialty.findOne({
             where: { id: id },
-            attributes: ["descriptionHtml", "descriptionMarkdown"],
             include: [
               {
                 model: db.DoctorInfo,
@@ -62,6 +61,10 @@ let getDetailSpecialtyService = (id, province) => {
                   { model: db.User, attributes: ["lastName", "firstName"] },
                 ],
               },
+              {
+                model: db.Markdown,
+                attributes: ["contentHtml", "contentMarkdown"],
+              },
             ],
             raw: false,
             nest: true,
@@ -69,7 +72,6 @@ let getDetailSpecialtyService = (id, province) => {
         } else {
           data = await db.Specialty.findOne({
             where: { id: id },
-            attributes: ["descriptionHtml", "descriptionMarkdown"],
             include: [
               {
                 model: db.DoctorInfo,
@@ -80,6 +82,10 @@ let getDetailSpecialtyService = (id, province) => {
                 include: [
                   { model: db.User, attributes: ["lastName", "firstName"] },
                 ],
+              },
+              {
+                model: db.Markdown,
+                attributes: ["contentHtml", "contentMarkdown"],
               },
             ],
             raw: false,
