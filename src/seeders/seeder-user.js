@@ -115,7 +115,7 @@ module.exports = {
         lastName: "Chung",
         address: "Bac Ninh",
         gender: 1,
-        image: "fit-logo.png",
+        image: "fit-logo.jpg",
         roleId: "R1",
         createdAt: new Date(),
         updatedAt: new Date(),

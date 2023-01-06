@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { raw } from "body-parser";
 import jwt from "jsonwebtoken";
 import { USER_ROLE } from "../constant";
+import { createUrl } from "../firebase/createUrl";
 require("dotenv").config();
 const salt = bcrypt.genSaltSync(10);
 
@@ -152,7 +153,7 @@ let getUserByIdService = (userId) => {
         nest: true,
       });
       if (users && users.image) {
-        users.image = new Buffer(users.image, "base64").toString("binary");
+        users.image = createUrl(users.image);
       } else {
         delete user.image;
       }

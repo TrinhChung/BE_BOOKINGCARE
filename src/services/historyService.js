@@ -1,5 +1,6 @@
 import db from "../models/index";
 import _ from "lodash";
+import { createUrl } from "../firebase/createUrl";
 require("dotenv").config();
 
 let getHistoryBookingService = (userId, page, limit) => {
@@ -47,7 +48,7 @@ let getHistoryBookingService = (userId, page, limit) => {
         if (bookings && bookings.length > 0) {
           bookings = bookings.map((item) => {
             if (item && item.files) {
-              item.files = new Buffer(item.files, "base64").toString("binary");
+              item.files = createUrl(item.files);
             }
             return item;
           });

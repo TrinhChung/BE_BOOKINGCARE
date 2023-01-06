@@ -88,7 +88,7 @@ let getDetailClinicService = (id, province) => {
           nest: true,
         });
         if (data && data.image) {
-          data.image = new Buffer(data.image, "base64").toString("binary");
+          data.image = createUrl(data.image);
         }
         if (!data) data = {};
         resolve({ errCode: 0, data: data });
