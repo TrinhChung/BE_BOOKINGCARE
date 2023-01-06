@@ -37,6 +37,7 @@ module.exports = {
       },
       positionId: {
         type: Sequelize.STRING,
+        defaultValue: "P0",
       },
       createdAt: {
         allowNull: false,
