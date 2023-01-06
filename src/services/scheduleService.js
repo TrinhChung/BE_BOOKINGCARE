@@ -58,6 +58,7 @@ let getScheduleByDateService = async (doctorId, date) => {
           where: {
             doctorId: doctorId,
             date: date,
+
             currentNumber: {
               [Op.lt]: 10,
             },

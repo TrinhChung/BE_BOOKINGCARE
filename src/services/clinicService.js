@@ -1,4 +1,5 @@
 import db from "../models/index";
+import { createUrl } from "../firebase/createUrl";
 
 let createNewClinicService = (data) => {
   return new Promise(async (resolve, reject) => {
@@ -44,7 +45,7 @@ let getClinicService = (field) => {
       if (data && data.length > 0) {
         data = data.map((item) => {
           if (item && item.image) {
-            item.image = new Buffer(item.image, "base64").toString("binary");
+            item.image = createUrl(item.image);
           }
           return item;
         });

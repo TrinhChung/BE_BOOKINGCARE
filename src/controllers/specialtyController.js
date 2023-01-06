@@ -1,7 +1,16 @@
 import specialtyService from "../services/specialtyService";
+
 let createNewSpecialty = async (req, res, next) => {
   try {
-    let info = await specialtyService.createNewSpecialtyService(req.body);
+    if (!req.fileName) {
+      return res
+        .status(200)
+        .json({ error: 1, errMessage: "upload image fail" });
+    }
+    let info = await specialtyService.createNewSpecialtyService(
+      req.body,
+      req.fileName
+    );
     return res.status(200).json(info);
   } catch (error) {
     console.log(error);

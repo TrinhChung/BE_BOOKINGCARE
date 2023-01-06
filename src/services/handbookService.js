@@ -1,5 +1,6 @@
 import db from "../models/index";
 import _ from "lodash";
+import { createUrl } from "../firebase/createUrl";
 require("dotenv").config();
 
 let createNewHandleBookService = (data) => {
@@ -41,7 +42,7 @@ let getHandBookService = () => {
       if (res && res.length > 0) {
         res = res.map((item) => {
           if (item && item.image) {
-            item.image = new Buffer(item.image, "base64").toString("binary");
+            item.image = createUrl(item.image);
           }
           return item;
         });

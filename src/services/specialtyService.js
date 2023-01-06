@@ -1,19 +1,15 @@
 import db from "../models/index";
+import { createUrl } from "../firebase/createUrl";
 
-let createNewSpecialtyService = (data) => {
+let createNewSpecialtyService = (data, fileName) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (
-        !data.name ||
-        !data.avatar ||
-        !data.descriptionHtml ||
-        !data.descriptionMarkdown
-      ) {
+      if (!data.name || !data.descriptionHtml || !data.descriptionMarkdown) {
         resolve({ errCode: 1, errMessage: "Missing required data" });
       } else {
         await db.Specialty.create({
           name: data.name,
-          image: data.avatar,
+          image: fileName,
           descriptionHtml: data.descriptionHtml,
           descriptionMarkdown: data.descriptionMarkdown,
         });
@@ -33,7 +29,7 @@ let getSpecialtyService = () => {
       if (data && data.length > 0) {
         data = data.map((item) => {
           if (item && item.image) {
-            item.image = new Buffer(item.image, "base64").toString("binary");
+            item.image = createUrl(item.image);
           }
           return item;
         });
