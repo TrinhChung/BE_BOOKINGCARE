@@ -11,7 +11,7 @@ export const authenticate = async (req, res, next) => {
       const user = await db.User.findOne({
         where: { id: payloadToken.id },
         attributes: {
-          exclude: ["password", "image", "updatedAt", "createdAt"],
+          exclude: ["password", "updatedAt", "createdAt"],
         },
         raw: true,
       });

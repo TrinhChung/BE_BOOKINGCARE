@@ -66,13 +66,15 @@ let handleGetUserByToken = async (req, res) => {
 };
 
 let handleCreateNewUser = async (req, res) => {
-  let data = await userService.createNewUser(req.body);
+  const avatar = req.fileName ? req.fileName : null;
+  let data = await userService.createNewUser(req.body, avatar);
   return res.status(200).json(data);
 };
 
 let handleEditUser = async (req, res) => {
   let data = req.body;
-  let message = await userService.updateUserData(data);
+  let imageUrl = req.fileName ? req.fileName : null;
+  let message = await userService.updateUserData(data, imageUrl);
   return res.status(200).json(message);
 };
 

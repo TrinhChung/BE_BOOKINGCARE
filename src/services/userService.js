@@ -95,7 +95,7 @@ let getAllUsers = (page) => {
       if (page === "all") {
         let users = await db.User.findAll({
           attributes: {
-            exclude: ["password", "image"],
+            exclude: ["password"],
           },
           raw: true,
         });
@@ -107,13 +107,22 @@ let getAllUsers = (page) => {
         count = count % 10 === 0 ? count / 10 : parseInt(count / limit) + 1;
         let users = await db.User.findAll({
           attributes: {
-            exclude: ["password", "image"],
+            exclude: ["password"],
           },
           order: [["id", "DESC"]],
           offset: offset,
           limit: limit,
           raw: true,
         });
+
+        if (users && users.length > 0) {
+          users = users.map((item) => {
+            if (item && item.image) {
+              item.image = createUrl(item.image);
+            }
+            return item;
+          });
+        }
 
         resolve({
           errCode: 0,
@@ -154,8 +163,6 @@ let getUserByIdService = (userId) => {
       });
       if (users && users.image) {
         users.image = createUrl(users.image);
-      } else {
-        delete user.image;
       }
       if (!users) users = {};
       resolve(users);
@@ -165,11 +172,30 @@ let getUserByIdService = (userId) => {
   });
 };
 
-let createNewUser = (data) => {
+let getUserInfoService = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let users = await db.User.findOne({
+        where: { id: userId },
+        attributes: {
+          exclude: ["password"],
+        },
+        raw: true,
+        nest: true,
+      });
+
+      if (!users) users = {};
+      resolve(users);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+let createNewUser = (data, avatar) => {
   return new Promise(async (resolve, reject) => {
     try {
       let check = await checkUserEmail(data.email);
-
       let res = {};
       if (check === true) {
         return resolve({
@@ -186,7 +212,7 @@ let createNewUser = (data) => {
           address: data.address ? data.address : "",
           phoneNumber: data.phoneNumber,
           gender: data.gender,
-          image: data.avatar ? data.avatar : "",
+          image: avatar,
           roleId: data.role ? data.role : USER_ROLE.USER,
           positionId: data.position ? data.position : "P0",
         });
@@ -231,7 +257,7 @@ let deleteUser = (id) => {
   });
 };
 
-let updateUserData = (data) => {
+let updateUserData = (data, avatar) => {
   return new Promise(async (resolve, reject) => {
     try {
       if (!data.id || !data.roleId || !data.gender || !data.positionId) {
@@ -251,8 +277,8 @@ let updateUserData = (data) => {
         user.phoneNumber = data.phoneNumber;
         user.gender = data.gender;
         user.positionId = data.positionId;
-        if (data.avatar) {
-          user.image = data.avatar;
+        if (avatar.length > 0) {
+          user.image = avatar;
         }
         await user.save({ where: { id: data.id } });
 
@@ -304,4 +330,5 @@ module.exports = {
   updateUserData: updateUserData,
   getAllCodeService: getAllCodeService,
   getUserByIdService: getUserByIdService,
+  getUserInfoService: getUserInfoService,
 };
