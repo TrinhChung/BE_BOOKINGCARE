@@ -29,16 +29,6 @@ let getTopDoctorHome = (limit) => {
             required: false,
             left: true,
           },
-          // {
-          //   model: db.Favorite,
-          //   as: "favoriteData",
-          //   where: { keyMap: 1 },
-          //   attributes: [],
-          //   // group: ["favoriteData.id"],
-          //   required: false,
-
-          //   left: true,
-          // },
           {
             model: db.DoctorInfo,
             attributes: ["specialtyId"],
@@ -61,20 +51,19 @@ let getTopDoctorHome = (limit) => {
               ),
               "bookingCount",
             ],
-            // [
-            //   db.sequelize.fn(
-            //     "COUNT",
-            //     db.sequelize.literal("favoriteData.keyMap")
-            //   ),
-            //   "favoriteCount",
-            // ],
+            [
+              db.sequelize.literal(
+                "(SELECT COUNT(*) FROM Favorites WHERE Favorites.fkId = User.id and Favorites.keyMap=1)"
+              ),
+              "favoriteCount",
+            ],
           ],
         },
         limit: limit,
         group: ["User.id"],
         order: [
           [db.sequelize.literal("bookingCount"), "DESC"],
-          // [db.sequelize.literal("favoriteCount"), "DESC"],
+          [db.sequelize.literal("favoriteCount"), "DESC"],
         ],
         raw: false,
         nest: true,
