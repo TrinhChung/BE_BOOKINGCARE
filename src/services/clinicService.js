@@ -1,24 +1,32 @@
 import db from "../models/index";
 import { createUrl } from "../firebase/createUrl";
 
-let createNewClinicService = (data) => {
+let createNewClinicService = (data, avatar) => {
   return new Promise(async (resolve, reject) => {
     try {
       if (
         !data.name ||
-        !data.avatar ||
+        avatar.length <= 0 ||
         !data.address ||
         !data.descriptionHtml ||
         !data.descriptionMarkdown
       ) {
         resolve({ errCode: 1, errMessage: "Missing required data" });
       } else {
-        await db.Clinic.create({
+        const clinic = await db.Clinic.create({
           name: data.name,
-          image: data.avatar,
+          image: avatar,
           address: data.address,
-          descriptionHtml: data.descriptionHtml,
-          descriptionMarkdown: data.descriptionMarkdown,
+        });
+
+        if (!clinic && !clinic.id) {
+          resolve({ errCode: -1, errMessage: "Server Error" });
+        }
+
+        await db.Markdown.create({
+          clinicId: clinic.id,
+          contentHTML: data.descriptionHtml,
+          contentMarkdown: data.descriptionMarkdown,
         });
 
         resolve({ errCode: 0, errMessage: "Ok" });

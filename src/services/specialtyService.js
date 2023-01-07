@@ -1,5 +1,6 @@
 import db from "../models/index";
 import { createUrl } from "../firebase/createUrl";
+import { deleteImageByName } from "../firebase/config";
 
 let createNewSpecialtyService = (data, fileName) => {
   return new Promise(async (resolve, reject) => {
@@ -7,12 +8,26 @@ let createNewSpecialtyService = (data, fileName) => {
       if (!data.name || !data.descriptionHtml || !data.descriptionMarkdown) {
         resolve({ errCode: 1, errMessage: "Missing required data" });
       } else {
-        await db.Specialty.create({
+        const specialty = await db.Specialty.create({
           name: data.name,
           image: fileName,
-          descriptionHtml: data.descriptionHtml,
-          descriptionMarkdown: data.descriptionMarkdown,
         });
+
+        if (!specialty && !specialty.id) {
+          resolve({ errCode: -1, errMessage: "Server Error" });
+        }
+
+        const markdown = await db.Markdown.create({
+          specialtyId: specialty.id,
+          contentHTML: data.descriptionHtml,
+          contentMarkdown: data.descriptionMarkdown,
+        });
+
+        if (!markdown && !markdown.id) {
+          const res = deleteImageByName(specialty.image);
+          await db.Specialty.destroy({ where: { id: specialty.id } });
+          resolve({ errCode: -1, errMessage: "Server Error" });
+        }
 
         resolve({ errCode: 0, errMessage: "Ok" });
       }

@@ -1,7 +1,15 @@
 import clinicService from "../services/clinicService";
 let createNewClinic = async (req, res, next) => {
   try {
-    let info = await clinicService.createNewClinicService(req.body);
+    if (!req.fileName) {
+      return res
+        .status(200)
+        .json({ error: 1, errMessage: "upload image fail" });
+    }
+    let info = await clinicService.createNewClinicService(
+      req.body,
+      req.fileName
+    );
     return res.status(200).json(info);
   } catch (error) {
     console.log(error);

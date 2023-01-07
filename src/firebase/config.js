@@ -87,3 +87,15 @@ export const deleteImage = (isUpdate) => {
       });
   };
 };
+
+export const deleteImageByName = (name) => {
+  const desertRef = ref(storage, name);
+  deleteObject(desertRef)
+    .then(() => {
+      return true;
+    })
+    .catch((error) => {
+      console.log(error);
+      return false;
+    });
+};
