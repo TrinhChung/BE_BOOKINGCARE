@@ -44,42 +44,27 @@ module.exports = {
         </ul>
         <p><img src="https://otakugo.net/wp-content/uploads/2022/06/one-piece-chap-1054-spoiler-ke-hoach-cua-ryokugyu.jpg?raw=true" alt="img"></p>
         `,
-        contentMarkdown: `**Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An**
-        * Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
-        * Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
-        * Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
-        * Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
-        * Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
-        
-        **Khám & điều trị**
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
-        * Nội soi Tai Mũi Họng
-        * Thực hiện các qui trình kỹ thuật Tai Mũi Họng
-        
-        **Các bệnh về tai**
-        
-        * Ù tai, nghe kém, điếc đột ngột
-        * Chẩy mủ tai, viêm tai giữa cấp, mạn
-        * Vá màng nhĩ nội soi
-        * Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
-        
-        **Các bệnh mũi xoang**
-        
-        * Viêm mũi xoang dị ứng, viêm mũi vận mạch
-        * Viêm mũi ngạt tắc mũi mạn tính
-        * Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
-        * Nấm mũi xoang
-        * Đau đầu mạn tính do mũi xoang…
-        
-        **Các bệnh về họng thanh quản**
-        * Ở trẻ em viêm VA, viêm mũi họng mạn tính
-        * Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
-        * Viêm amiđan cấp, mạn
-        * Nạo V.A
-        * Cắt Amidan
-        
-        ![img](https://otakugo.net/wp-content/uploads/2022/06/one-piece-chap-1054-spoiler-ke-hoach-cua-ryokugyu.jpg?raw=true)
+        contentMarkdown: `## Tim mạch
+**Bác sĩ tim mạch giỏi**
+**Danh dách các bác sĩ tim mạch uy tín đầu ngành tại Việt Nam:**
+* Các chuyên gia được đào tạo bài bản về chuyên ngành Tim mạch tại các trường đại học trong nước và quốc tế.
+* Các giáo sư, phó giáo sư nghiên cứu và giảng dạy tại Đại học Y Hà Nội
+* Các bác sĩ đã, đang công tác tại các bệnh viện hàng đầu như Viện Tim Mạch Quốc Gia, Bệnh viện Bạch Mai, Bệnh viện Việt Đức, Bệnh Viện E, Bệnh Viện Tim Hà Nội
+* Là thành viên hoặc lãnh đạo các tổ chức chuyên môn như: Hiệp hội Tim Mạch Việt Nam
+ * Đạt danh hiệu Thầy thuốc Nhân dân, Thầy thuốc Ưu tú, Bác sĩ Cao cấp,...
+         
+**Khám tư vấn tim mạch**
+         
+  * Khó thở, Đau ngực, đau tim
+  * Tăng huyết áp, hạ huyết áp
+  * Rối loạn mỡ máu, cao huyết áp, chóng mặt
+  * Bệnh van tim (Hẹp hở van tim), Hẹp động mạch chủ
+  * Cảm giác hồi hộp, tim đập nhanh   
+  * Tim bẩm sinh, có tiền sử bệnh tim to, tiền sử tai biến   
+  * Đã đặt stent tim, nong động mạch vành
+  * Giãn tĩnh mạch chân   
+ * ...
+![img](https://otakugo.net/wp-content/uploads/2022/06/one-piece-chap-1054-spoiler-ke-hoach-cua-ryokugyu.jpg?raw=true)
         `,
         description: `Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
         Nguyên Trưởng khoa Tai mũi họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
@@ -128,42 +113,37 @@ module.exports = {
         <li>Cắt Amidan</li>
         </ul>
         `,
-        contentMarkdown: `
-        ### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
-        
-        * Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
-        * Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
-        * Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
-        * Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
-        * Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
-        
-        
-        ### Khám & điều trị
-        
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
-        * Nội soi Tai Mũi Họng
-        * Thực hiện các qui trình kỹ thuật Tai Mũi Họng
-        * Các bệnh về tai
-        * 
-        * Ù tai, nghe kém, điếc đột ngột
-        * Chẩy mủ tai, viêm tai giữa cấp, mạn
-        * Vá màng nhĩ nội soi
-        * Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
-        * Các bệnh mũi xoang
-        * 
-        * Viêm mũi xoang dị ứng, viêm mũi vận mạch
-        * Viêm mũi ngạt tắc mũi mạn tính
-        * Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
-        * Nấm mũi xoang
-        * Đau đầu mạn tính do mũi xoang…
-        * Các bệnh về họng thanh quản
-        * 
-        * Ở trẻ em viêm VA, viêm mũi họng mạn tính
-        * Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
-        * Viêm amiđan cấp, mạn
-        * Nạo V.A
-        * Cắt Amidan`,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: "Phòng khám Chuyên khoa Da Liễu",
         doctorId: 2,
         specialtyId: 0,
@@ -211,52 +191,37 @@ module.exports = {
         <li>Cắt Amidan</li>
         </ul>
         `,
-        contentMarkdown: `
-        ### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
-        
-        * Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
-        * Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
-        * Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
-        * Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
-        * Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
-        
-        
-        ### Khám & điều trị
-        
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
-        * Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
-        * Nội soi Tai Mũi Họng
-        * Thực hiện các qui trình kỹ thuật Tai Mũi Họng
-        
-        
-        ### Các bệnh về tai
-        
-        
-        * Ù tai, nghe kém, điếc đột ngột
-        * Chẩy mủ tai, viêm tai giữa cấp, mạn
-        * Vá màng nhĩ nội soi
-        * Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
-        
-        
-        ### Các bệnh mũi xoang
-        
-        
-        
-        * Viêm mũi xoang dị ứng, viêm mũi vận mạch
-        * Viêm mũi ngạt tắc mũi mạn tính
-        * Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
-        * Nấm mũi xoang
-        * Đau đầu mạn tính do mũi xoang…
-        
-        
-        ### Các bệnh về họng thanh quản
-        
-        
-        * Ở trẻ em viêm VA, viêm mũi họng mạn tính
-        * Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
-        * Viêm amiđan cấp, mạn
-        * Nạo V.A
-        * Cắt Amidan`,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description:
           "Lưu ý thường xảy ra tình trạng đông bệnh nhân vào một số thời điểm: 08:00 - 09:00, 08:30 - 09:30, 09:00 - 10:00, 09:30 - 10:30",
         doctorId: 3,
@@ -311,53 +276,37 @@ module.exports = {
         <li>Và các bệnh lý chuyên sâu khác về chuyên khoa Da liễu</li>
         </ul>
         `,
-        contentMarkdown: `
-        ### Phó Giáo sư, Tiến sĩ, Bác sĩ Cao cấp Nguyễn Ngọc Hà
-        
-        * Phó giáo sư, Tiến sĩ, Bác sĩ cao cấp chuyên khoa Da liễu
-        * Bác sĩ từng công tác tại Bệnh viện Da liễu Trung ương
-        * Nguyên Trưởng phòng chỉ đạo tuyến tại Bệnh viện Da liễu Trung ương
-        * Đạt chứng chỉ Diploma về Da liễu tại Viện da liễu Băng Cốc - Thái Lan
-        * Bác sĩ thường xuyên tham gia các Hội thảo, Hội nghị Quốc tế về Da liễu
-        * Hội viên của Hội Da liễu Đông Nam Á, Châu Á và Thế giới
-        * Giảng viên bộ môn Da liễu tại Đại Học Y Hà Nội
-        * Trưởng Bộ môn Da liễu, Trường Đại học Kinh doanh và Công nghệ
-        * Tốt nghiệp Đại học Y Hà Nội (1977)
-        * Nguyên Tổng Thư ký Hiệp hội Da liễu Việt Nam
-        * Phó Giáo sư khám và điều trị
-        
-        
-        ### Các bệnh lý về chuyên sâu về da liễu người lớn và trẻ em
-        
-        
-        * Trứng cá thông thường thanh thiếu niên, người lớn, trứng cá do thuốc, mỹ phẩm, do bôi corticord, các thể bệnh trứng cá nặng, trứng cá đỏ (rosacea)
-        * Điều trị da phục hồi da tổn hại do trứng cá, sẹo trứng cá
-        * Các bệnh lý da mặt: viêm da dị ứng, tổn hại da do sử dụng mỹ phẩm, do corticord, lão hóa da
-        * Nám da, tàn nhang, sạm da, các bệnh da tăng sắc tố sau viêm, sau trứng cá, do mỹ phẩm
-        * Viêm da cơ địa trẻ em và người lớn
-        * Viêm da dị ứng, viêm da tiếp xúc, viêm da dầu
-        * Tổ đỉa
-        * Mày đay
-        * Bạch biến
-        * Vảy nến
-        * Tổ đỉa
-        * Mày đay
-        * Bạch biến
-        * Vảy nến
-        * Rụng tóc
-        * Các bệnh da do nhiễm khuẩn: Viêm nang lông, chốc, nhọt, viêm da mủ
-        * Zona, Thủy đậu, Herpes
-        * Ghẻ
-        * Các bênh da do nấm: Nấm nông da, nấm da đầu, nấm móng tay, móng chân, lang ben, nấm men niêm mạc
-        * Viêm mao mạch dị ứng
-        * các bệnh da: Có bọng nước, bệnh vẩy phấn hồng, á vẩy nến, liken phẳng, các bệnh da dị ứng thuốc
-        * U lành tính của da: Đồi mồi, u cổ tuyến mồ hôi, u mềm lây, u mềm treo, u tuyến bã
-        * Một số bệnh lông - tóc - móng
-        * Chăm sóc da (skincare)  cho viêm da mặt, trứng cá, liệu trình trị nám, lăn kim, huyết tương giàu tiểu cầu, trị sẹo trứng cá, laser, plasma trị u lành da, nám, đồi mồi
-        * 
-        * Tiêm tái sinh nang tóc
-        * Và các bệnh lý chuyên sâu khác về chuyên khoa Da liễu
-        `,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: `Nguyên Trưởng phòng chỉ đạo tuyến tại Bệnh viện Da liễu Trung ương
         Bác sĩ từng công tác tại Bệnh viện Da liễu Trung ương
         Nguyên Tổng Thư ký Hiệp hội Da liễu Việt Nam`,
@@ -465,110 +414,37 @@ module.exports = {
         <li>Phẫu thuật nội soi trào ngược dạ dày thực quản</li>
         </ul>
         `,
-        contentMarkdown: `
-        ### Giáo sư, Tiến sĩ, Bác sĩ Hà Văn Quyết
-        
-        * Giáo sư, Tiến sỹ, Bác sĩ chuyên khoa Ngoại Tiêu hóa
-        * Chuyên gia đầu ngành trong lĩnh vực bệnh lý Tiêu hóa
-        * Kinh nghiệm làm việc trên 35 năm trong lĩnh vực bệnh lý Tiêu hóa
-        * Chuyên ngành Ngoại – Phẫu thuật Nội soi Tiêu hóa, Ổ bụng & các bệnh lý hậu môn, trực tràng.
-        * Bác sĩ Nội trú Bệnh viện Việt Đức 
-        * Nguyên Chủ nhiệm Bộ môn Ngoại - Đại học Y Hà Nội 
-        * Nguyên Giám đốc Bệnh viện Đại học Y Hà Nội
-        * Nguyên Phó Giám đốc Bệnh viện Việt Đức.
-        * Bác sĩ khám cho người bệnh từ 3 tuổi trở lên
-        
-        
-        ### Quá trình Đào tạo
-        
-        * Tốt nghiệp Bác sĩ Đa khoa, Đại học Y Hà Nội.
-        * Bác sĩ Nội trú tại các bệnh viện ở Paris, Cộng hòa Pháp
-        * Thực tập sinh khoa Tiêu hóa trường Đại học Tokai, Nhật Bản
-        * Tu nghiệp về chuyên khoa Tiêu hóa tại Mỹ, Singapore, Hàn Quốc 
-        * Sách và các công trình nghiên cứu, báo cáo khoa học
-        * Chủ biên nhiều bộ sách giáo khoa về Ngoại khoa phẫu thuật tiêu hóa và chuyên sâu về tiêu hóa.
-        * Tham gia các đề tài nghiên cứu khoa học về ung thư dạ dày, đại trực tràng; các chủ đề về bệnh lý tụy; các loại phẫu thuật nội soi, nội soi can thiệp; bệnh lý về hậu môn trực tràng. 
-        * Thành viên các Hội khoa học, tổ chức chuyên môn
-        * Nguyên Tổng thư kí Hội Ngoại khoa Việt Nam 
-        * Phó Chủ tịch Hội Khoa học về Hậu môn trực tràng 
-        * Tham gia các chuyên đề sức khỏe 
-        * Ban biên tập Tạp chí Y học thực hành
-        * Ban biên tập Tạp chí Ngoại khoa
-        * Ban biên tập Tạp chí Hậu môn Trực tràng
-        
-        
-        ### Giáo sư Khám, điều trị các bệnh 
-        
-        * Giáo sư nhận khám, điều trị các bệnh lý khó về Tiêu hóa, hậu môn, trực tràng, gan mật.
-        * Trực tiếp tiến hành Nội soi tiêu hóa, dạ dày, đại tràng
-        * Khám, Nội soi, Xét nghiệm sàng lọc ung thư đại trực tràng
-        * Khám, Nội soi, Xét nghiệm sàng lọc ung thư dạ dày
-        * Khám, Nội soi, Xét nghiệm sàng lọc bệnh lý ung thư đường tiêu hóa
-        * Khám, Nội soi, tư vấn điều trị bệnh lý Hậu môn, Bệnh Trĩ Nội, Trĩ Ngoại.
-        
-        ### Khám và điều trị các bệnh lý dạ dày
-        
-        
-        * Gắp dị vật đường tiêu hóa
-        * Đau dạ dày
-        * Chảy máu dạ dày 
-        * Đau thượng vị 
-        * Viêm dạ dày
-        * Loét dạ dày tá tràng
-        * Nhiễm Helicobacter pylori dạ dày (HP)
-        * Trào ngược dạ dày thực quản (Gerd)
-        * Tắc ruột 
-        * Polyp dạ dày 
-        * Chảy máu dạ dày 
-        * Viêm dạ dày ruột Virus
-        * Viêm ruột thừa
-        * Polyp dạ dày
-        * Ung thư dạ dày
-        * Táo bón
-        * Khó nuốt
-        * Khó tiêu
-        * Ợ nóng, Ợ chua
-        * Táo bón
-        
-        ### Bệnh lý đại tràng, trực tràng, hậu môn
-        
-        
-        * Hội chứng ruột kích thích (viêm đại tràng co thắt)
-        * Viêm đại tràng
-        * Viêm đại tràng màng giả
-        * Viêm loét đại tràng
-        * Bệnh trĩ, trĩ chảy máu, rò hậu môn
-        * Rò hậu môn, ngứa hậu môn
-        * Nứt kẽ hậu môn, đại tiện ra máu, đại tiện khó
-        * Apxe hậu môn
-        * Đi ngoài ra máu
-        
-        
-        ### Khám và điều trị các bệnh lý về gan, mật 
-        
-        
-        * Viêm túi mật, sỏi mật 
-        * Viêm tụy
-        * Viêm xơ đường mật
-        * Viêm xơ gan do rượu
-        * Xơ gan
-        * U gan
-        
-        
-        ### Nội soi tiêu hóa 
-        
-        
-        * Gắp dị vật đường tiêu hóa 
-        * Khám, Nội soi, tư vấn điều trị bệnh lý Hậu môn, Bệnh Trĩ Nội, Trĩ Ngoại
-        * Khám, Nội soi, Xét nghiệm sàng lọc ung thư đại trực tràng
-        * Khám, Nội soi, Xét nghiệm sàng lọc bệnh lý ung thư đường tiêu hóa
-        * Khám, nội soi dạ dày 
-        * Nội soi dạ dày (có gây mê)
-        * Nội soi đại tràng (có gây mê)
-        * Nội soi cắt polyp dạ dày
-        * Nội soi cắt polyp đại trực tràng  
-        * Phẫu thuật nội soi cắt u dưới niêm mạc dạ dày – tá tràng, đại tràng
-        * Phẫu thuật nội soi trào ngược dạ dày thực quản`,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: "Bác sĩ khám cho người bệnh từ 3 tuổi trở lên ",
         doctorId: 5,
         specialtyId: 0,
@@ -627,61 +503,37 @@ module.exports = {
         <li>Các bệnh lý da khác và bệnh lây qua đường quan hệ tình dục (STDs)</li>
         </ul>
         `,
-        contentMarkdown: `
-        ### Bác sĩ chuyên khoa II Trần Thị Hoài Hương
-        
-        * Trưởng Khoa Dinh Dưỡng bệnh viện Da Liễu TP. HCM
-        * Bác sĩ Hương có hơn 20 năm kinh nghiệm trong khám và điều trị bệnh lý da liễu
-        * Bác sĩ nhận khám mọi độ tuổi
-        
-        
-        ### Quá trình công tác
-        
-        * Trưởng khoa Dinh Dưỡng, Bệnh viện Da Liễu TP.HCM
-        * Nguyên Phó trưởng khoa Lâm sàng 1, Bệnh viện Da Liễu TP.HCM
-        * Hiện là Bác sĩ Da liễu, Phòng khám Da liễu Táo Đỏ
-        * Bác sĩ chuyên khoa da liễu, thẩm mỹ da Bệnh Viện Da Liễu TP.HCM
-        
-        
-        ### Quá trình đào tạo
-        
-        * Tốt nghiệp Bác sĩ Chuyên khoa II, chuyên ngành Da liễu, Đại học Y dược TP.HCM
-        * Tốt nghiệp Bác sĩ Chuyên khoa I, chuyên ngành Da liễu, Đại học Y dược TP.HCM
-        * Tốt nghiệp Bác sĩ Đa khoa, Đại học Y dược TP.HCM
-        * Tham gia lớp Sơ bộ DInh dưỡng, Đại học Y khoa Phạm Ngọc Thạch
-        * Thành viên các Hội khoa học, tổ chức chuyên môn
-        * Hội viên chi hội Da Liễu Hồ Chí Minh
-        * Hội viên Hội Da Liễu Việt Nam
-        
-        
-        ### Khám và điều trị
-        
-        
-        ### Bác sĩ khám và điều trị:
-        
-        
-        * Mụn trứng cá: mụn viêm, bọc, nang, mụn đầu trắng, đâu đen
-        * Nám, sạm da: nám, sạm da mặt
-        * Rụng tóc, da dầu: mụn trứng cá, sẹo lồi, sẹo thâm, sẹo mụn
-        * Mề đay: tóc gàu, vảy, rụng tóc từng phần, lan tỏa
-        * Viêm da cơ địa: mảng da đỏ, ngứa nhiều, từng cơn
-        * Viêm da dị ứng: mẩn đỏ da, ngứa, lan tỏa
-        * Thủy đậu: mụn nước, ngứa, kèm sốt nhẹ, mệt mỏi
-        * Zona: mang mụn nước, 1 bên người, đau nhức
-        * Da nhờn, lỗ chân lông to
-        * Vảy nến: mảng đổ da, tróc vảy, có thể toàn thân
-        * Ghẻ ngứa: ngứa về đêm, vùng nếp, kẽ ngón tay, ngón chân
-        * Rạn da: da đùi, da rạn teo, bụng, nếp bẹn, nách, lưng
-        * Lão hóa da: da đổi màu, nhão, xệ, nến nhăn, sần
-        * Da đồi mồi: đốm nâu
-        * Pemphigus: bóng nước thân mình, niêm mạc
-        * Lupus ban đỏ: hồng ban cánh bướm mặt, đau nhức mỏi cơ xương khớp
-        * Xơ cứng bì: da cứng, không đều màu
-        * Nấm da: da đỏ quằn quện, các vùng da, tóc, nếp da
-        * Viêm da tiếp xúc: da đỏ, rát, nhạy cảm, tiếp xúc kiến ba khoang
-        * Viêm da do nhiễm Corticoid, nhạy cảm: da đỏ, giãn mạch, mãng, nhạy cảm, nôi mụn
-        * Nấm móng
-        * Các bệnh lý da khác và bệnh lây qua đường quan hệ tình dục (STDs)`,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: "Bác sĩ nhận khám mọi độ tuổi",
         doctorId: 6,
         specialtyId: 0,
@@ -721,39 +573,37 @@ module.exports = {
         <li>Các bệnh lý loạn thần do sử dụng chất (ma túy đá, cần sa, heroin..)...
         </ul>
         `,
-        contentMarkdown: `
-        ### Bác sĩ Chuyên khoa II Trần Minh Khuyên
-        
-        * Nguyên Trưởng khoa lâm sàng, Bệnh tâm thần Thành phố Hồ Chí Minh
-        * Tốt nghiệp Tâm lý trị liệu, trường Tâm lý Thực hành Paris (Psychology practique de Paris)
-        * Bác sĩ nhận khám từ 16 tuổi trở lên
-        * Quá trình đào tạo
-        * Tốt nghiệp Bác sĩ Đa khoa, Trường Đại học y dược thành phố Hồ Chí Minh
-        * Học chuyên khoa cấp I và chuyên khoa cấp II Chuyên ngành Tâm thần, Đại học Y khoa Huế
-        * Tốt nghiệp Tâm lý trị liệu, trường Tâm lý thực Hành Paris (Psychology practique de Paris)
-        
-        
-        ### Quá trình công tác
-        
-        * Nguyên Trưởng phòng Kế hoạch Nghiệp vụ, Trưởng phòng khám Tâm thần Quận 3, thành phố Hồ Chí Minh
-        * Nguyên Trưởng khoa lâm sàng Bệnh tâm thần thành phố Hồ Chí Minh
-        * Giám định viên tư pháp chuyên ngành Tâm thần giám định các trường hợp trọng án, các trường hợp có liên quan pháp lý do cảnh sát điều tra, tòa án các cấp trưng cầu.
-        
-        
-        ### Khám và điều trị
-        
-        * Các rối loạn giấc ngủ không thực tổn: mất ngủ, ngủ nhiều, ngủ ngày quá mức, rối loạn nhịp thức ngủ, hoảng sợ khi ngủ, ác mộng, ngủ rũ,...
-        * Các rối loạn lo âu: lo lắng, sợ hãi về tương lai, cảm giác cáu gắt, căng thẳng, vận động, bồn chồn, hồi hộp, vã mồ hôi tay chân, cồn cào,...
-        * Rối loạn trầm cảm: buồn chán, bi quan, mệt mỏi, giảm hoạt động,...
-        * Hưng cảm: vui vẻ quá mức, suồng sã, tăng hoạt động, đứng ngồi không yên,...
-        * Rối loạn hoang tưởng: hoang tưởng bị hại, bị theo dõi, liên hệ, bị tội,...
-        * Rối loạn ảo giác
-        * Các rối loạn liên quan đến stress
-        * Rối loạn khí sắc
-        * Rối loạn cảm xúc phân liệt
-        * Rối loạn đa nhân cách
-        * Các bệnh lý loạn thần do sử dụng chất (ma túy đá, cần sa, heroin..)...
-        `,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: `Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện Bạch Mai
         Chủ tịch Hội Thấp khớp học Việt Nam
         Giáo sư đầu ngành với gần 50 năm kinh nghiệm điều trị các bệnh lý liên quan đến Cơ xương khớp
@@ -827,57 +677,37 @@ module.exports = {
         <li>Nội soi khớp gối, khớp vai</li>
         </ul>
         `,
-        contentMarkdown: `
-        ## Giáo sư, Tiến sĩ, Bác sĩ Trần Ngọc Ân
-        
-        * Cố vấn chuyên môn chuyên khoa Cơ xương khớp, Bệnh Viện Đa khoa Hồng Phát
-        * Giáo sư đầu ngành với gần 50 năm kinh nghiệm điều trị các bệnh lý liên quan đến Cơ xương khớp
-        * Chủ tịch Hội Thấp khớp học Việt Nam
-        * Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện Bạch Mai 
-        * Nguyên Giám đốc Bệnh viện E
-        * Nguyên giảng viên cao cấp Đại học Y Hà Nội
-        * Bác sĩ khám cho người bệnh từ 14 tuổi trở lên
-        
-        **Quá trình công tác**
-        ---
-        
-        * Nguyên Trưởng khoa Cơ xương khớp, Bệnh viện Bạch Mai
-        * Giáo sư đào tạo được trên 10 Tiến sĩ, trên 30 Bác sĩ Chuyên khoa cấp II, Thạc sĩ và Bác sĩ Nội trú về chuyên ngành thấp khớp
-        * Chỉ đạo chuyên môn tại Trung tâm Cơ xương khớp, Bệnh viện E (2004-2007)
-        * Giám đốc Bệnh viện E (1995-2004)
-        * Phó trưởng khoa – Bí thư chi bộ khoa Y trường Đại học Tây Nguyên (1984)
-        
-        
-        
-        
-        * Một trong các Phó Tiến sĩ đầu tiên bảo vệ luận án Tiến sĩ trong nước tại Trường Đại học Y với đề tài: “Viêm cột sống dính khớp” (1981)
-        * Tham quan, trao đổi tại Hung-ga-ri (1974)
-        * Tốt nghiệp bác sĩ trường Đại học Y Hà Nội (1960)
-        
-        
-        ### Giải thưởng
-        
-        * Huân chương Lao động hạng Hai (2007)
-        * Huân chương Lao động hạng Ba (2001)
-        * Sách và các công trình nghiên cứu, báo cáo khoa học
-        * Tác giả cuốn sách: Bệnh thấp khớp
-        * Tham gia biên soạn 3 cuốn sách: Bách khoa thư bệnh học, Bệnh học Nội khoa và Nội khoa cơ sở
-        * Thành viên các Hội khoa học, tổ chức chuyên môn
-        * Chủ tịch Hội Thấp khớp học Việt Nam
-        * Giáo sư Khám & điều trị
-        
-        **Giáo sư chuyên khám, điều trị các bệnh chuyên khoa Cơ xương khớp:**
-        
-        * Viêm khớp dạng thấp
-        * Bệnh Gút cấp và mạn tính
-        * Viêm cột sống dính khớp
-        * Thoái hóa khớp, cột sống cổ, cột sống thắt lưng
-        * Đau thần kinh tọa, thoát vị đĩa đệm
-        * Viêm quanh khớp vai và các điểm bám gân khác
-        * Bệnh loãng xương
-        * Bệnh đau nhức xương khớp
-        * Lupus ban đỏ hệ thống
-        * Nội soi khớp gối, khớp vai`,
+        contentMarkdown: `### Phó Giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An
+* Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng
+* Nguyên Trưởng khoa Tai Mũi Họng trẻ em, Bệnh viện Tai Mũi Họng Trung ương
+* Trên 25 năm công tác tại Bệnh viện Tai Mũi Họng Trung ương
+* Bác sĩ Nội trú chuyên ngành Tai Mũi Họng
+* Bác sĩ đã từng tu nghiệp Cộng hòa Pháp về Tai Mũi Họng
+### Khám & điều trị
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng người lớn
+* Chuyên khám và điều trị các bệnh lý Tai Mũi Họng trẻ em
+* Nội soi Tai Mũi Họng
+* Thực hiện các qui trình kỹ thuật Tai Mũi Họng
+* Các bệnh về tai
+* 
+* Ù tai, nghe kém, điếc đột ngột
+* Chẩy mủ tai, viêm tai giữa cấp, mạn
+* Vá màng nhĩ nội soi
+* Phát hiện sớm và điều trị tốt bệnh viêm tai giữa màng nhĩ đóng kín, không chẩy mủ ra ngoài
+* Các bệnh mũi xoang
+* 
+* Viêm mũi xoang dị ứng, viêm mũi vận mạch
+* Viêm mũi ngạt tắc mũi mạn tính
+* Viêm đa xoang mạn lâu ngày khó khỏi, polyp mũi xoang
+* Nấm mũi xoang
+* Đau đầu mạn tính do mũi xoang…
+* Các bệnh về họng thanh quản
+* 
+* Ở trẻ em viêm VA, viêm mũi họng mạn tính
+* Các biến chứng của viêm VA (như viêm tai thanh dịch, viêm tai giữa cấp, viêm thanh khí phế quản….)
+* Viêm amiđan cấp, mạn
+* Nạo V.A
+* Cắt Amidan`,
         description: "",
         doctorId: 8,
         specialtyId: 0,
