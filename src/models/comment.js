@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Comment",
       hooks: {
         afterFind: async (instance, options) => {
-          console.log(options);
           options.include = [];
           if (instance.length > 0) {
             instance = await Promise.all(
@@ -39,8 +38,9 @@ module.exports = (sequelize, DataTypes) => {
                 const children = await Comment.findAll({
                   where: { parentId: i.id },
                 });
-                i.comments = children;
+                i.children = children;
                 i.user = user;
+                i.key = i.id;
                 return i;
               })
             );

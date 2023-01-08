@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       Clinic.hasOne(models.Markdown, {
         foreignKey: "clinicId",
       });
+      Clinic.hasMany(models.Favorite, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteClinicData",
+      });
     }
   }
   Clinic.init(

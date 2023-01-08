@@ -8,6 +8,21 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "id",
         as: "favoriteData",
       });
+      Favorite.belongsTo(models.Specialty, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteSpecialData",
+      });
+      Favorite.belongsTo(models.Clinic, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteClinicData",
+      });
+      Favorite.belongsTo(models.Handbook, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteHandbookData",
+      });
     }
   }
   Favorite.init(

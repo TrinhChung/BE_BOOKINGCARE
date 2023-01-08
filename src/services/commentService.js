@@ -65,16 +65,31 @@ let editCommentService = async (id, content) => {
   });
 };
 
-let getAllCommentsService = (keyMap, fkId) => {
+let getAllCommentsService = (keyMap, fkId, limit, order) => {
   return new Promise(async (resolve, reject) => {
     try {
+      let count = await db.Comment.count({
+        where: { keyMap: keyMap, fkId: fkId, parentId: 0 },
+      });
+      let maxCount = await db.Comment.count({
+        where: { keyMap: keyMap, fkId: fkId },
+      });
       let comments = await db.Comment.findAll({
         where: { keyMap: keyMap, fkId: fkId, parentId: 0 },
         raw: true,
+        order: [["createdAt", order]],
         nested: true,
+        limit: limit,
       });
 
-      resolve({ errMessage: "Ok", errCode: 0, data: comments });
+      resolve({
+        errMessage: "Ok",
+        errCode: 0,
+        data: {
+          total: { count: count, maxCount: maxCount },
+          comments: comments,
+        },
+      });
     } catch (error) {
       reject(error);
     }

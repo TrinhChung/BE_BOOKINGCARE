@@ -77,6 +77,7 @@ let getFavoriteService = async (fkId, keyMap, userId) => {
 
       resolve({ data: favorite, errCode: 0 });
     } catch (error) {
+      console.log(error);
       reject(error);
     }
   });

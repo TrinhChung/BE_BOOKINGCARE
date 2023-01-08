@@ -42,12 +42,33 @@ let getClinicService = (field) => {
     try {
       let data = {};
       if (field === "all") {
-        data = await db.Clinic.findAll();
+        data = await db.Clinic.findAll({
+          attributes: {
+            include: [
+              [
+                db.sequelize.literal(
+                  "(SELECT COUNT(*) FROM Favorites WHERE Favorites.fkId = Clinic.id and Favorites.keyMap=2)"
+                ),
+                "countLike",
+              ],
+            ],
+          },
+          order: [[db.sequelize.literal("countLike"), "DESC"]],
+        });
       } else {
         data = await db.Clinic.findAll({
           attributes: {
             exclude: ["descriptionHtml", "descriptionMarkdown", "image"],
+            include: [
+              [
+                db.sequelize.literal(
+                  "(SELECT COUNT(*) FROM Favorites WHERE Favorites.fkId = Clinic.id and Favorites.keyMap=2)"
+                ),
+                "countLike",
+              ],
+            ],
           },
+          order: [[db.sequelize.literal("countLike"), "DESC"]],
         });
       }
       if (data && data.length > 0) {

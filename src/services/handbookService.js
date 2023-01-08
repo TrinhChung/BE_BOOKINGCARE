@@ -37,7 +37,16 @@ let getHandBookService = () => {
       let res = await db.Handbook.findAll({
         attributes: {
           exclude: ["descriptionHtml", "descriptionMarkdown"],
+          include: [
+            [
+              db.sequelize.literal(
+                "(SELECT COUNT(*) FROM Favorites WHERE Favorites.fkId = Handbook.id and Favorites.keyMap=4)"
+              ),
+              "countLike",
+            ],
+          ],
         },
+        order: [[db.sequelize.literal("countLike"), "DESC"]],
       });
       if (res && res.length > 0) {
         res = res.map((item) => {

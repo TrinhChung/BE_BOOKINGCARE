@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       Specialty.hasOne(models.Markdown, {
         foreignKey: "specialtyId",
       });
+      Specialty.hasMany(models.Favorite, {
+        foreignKey: "fkId",
+        targetKey: "id",
+        as: "favoriteSpecialData",
+      });
     }
   }
   Specialty.init(

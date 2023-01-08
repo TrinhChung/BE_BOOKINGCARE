@@ -40,7 +40,19 @@ let createNewSpecialtyService = (data, fileName) => {
 let getSpecialtyService = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      let data = await db.Specialty.findAll();
+      let data = await db.Specialty.findAll({
+        attributes: {
+          include: [
+            [
+              db.sequelize.literal(
+                "(SELECT COUNT(*) FROM Favorites WHERE Favorites.fkId = Specialty.id and Favorites.keyMap=3)"
+              ),
+              "countLike",
+            ],
+          ],
+        },
+        order: [[db.sequelize.literal("countLike"), "DESC"]],
+      });
       if (data && data.length > 0) {
         data = data.map((item) => {
           if (item && item.image) {
