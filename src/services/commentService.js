@@ -1,5 +1,4 @@
 import db from "../models/index";
-
 let createNewCommentService = async (data) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -66,15 +65,50 @@ let editCommentService = async (id, content) => {
   });
 };
 
-let getAllCommentsService = async (fkId, keyMap) => {
+let getAllCommentsService = (keyMap, fkId) => {
   return new Promise(async (resolve, reject) => {
     try {
-      resolve({ errMessage: "Ok", errCode: 0 });
+      let comments = await db.Comment.findAll({
+        where: { keyMap: keyMap, fkId: fkId, parentId: 0 },
+      });
+      // comments = await Promise.all(
+      //   comments.map(async (comment) => {
+      //     comment.comments = await recursiveComment(comment);
+      //     return comment;
+      //   })
+      // );
+      // console.log(77);
+      // console.log(comments);
+
+      resolve({ errMessage: "Ok", errCode: 0, data: comments });
     } catch (error) {
       reject(error);
     }
   });
 };
+
+// let recursiveComment = async (comment) => {
+//   let childrenComments = await db.Comment.findAll({
+//     where: {
+//       parentId: comment.id,
+//     },
+//     attributes: {
+//       exclude: ["fkId", "keyMap"],
+//     },
+//   });
+//   console.log("Tham số đầu vào:");
+//   console.log(comment);
+//   console.log("Comment con:");
+//   console.log(childrenComments);
+//   if (childrenComments.length === 0) return {};
+//   childrenComments = childrenComments.map(async (childrenComment) => {
+//     childrenComment.comments = await recursiveComment(childrenComment);
+//     return comment;
+//   });
+//   console.log("kết quả trả về:");
+//   console.log(childrenComments);
+//   return await Promise.all(childrenComments);
+// };
 
 module.exports = {
   createNewCommentService: createNewCommentService,

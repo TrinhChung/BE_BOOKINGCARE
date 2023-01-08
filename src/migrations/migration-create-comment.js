@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false,
       },
       fkId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       content: {
@@ -21,11 +21,11 @@ module.exports = {
         allowNull: false,
       },
       userId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       parentId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         defaultValue: 0,
       },
 

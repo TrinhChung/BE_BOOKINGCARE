@@ -15,6 +15,25 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Comment",
+      hooks: {
+        afterFind: async (instance, options) => {
+          if (instance.length > 0) {
+            instance = await Promise.all(
+              instance.map(async (i, index) => {
+                console.log(index);
+                console.log(i);
+                const children = await Comment.findAll({
+                  where: { parentId: i.id },
+                });
+                console.log(index);
+                console.log(children);
+                i.comments = children;
+                return i;
+              })
+            );
+          }
+        },
+      },
     }
   );
   return Comment;

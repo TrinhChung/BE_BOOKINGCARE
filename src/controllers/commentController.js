@@ -68,11 +68,11 @@ let deleteComment = async (req, res, next) => {
 
 let getAllComments = async (req, res, next) => {
   try {
-    if (!req || !req.query || req.query.keyMap || req.query.fkId) {
+    if (!req || !req.query || !req.query.keyMap || !req.query.fkId) {
       return res.status(200).json({ error: 1, errMessage: "Missing query" });
     }
     let comments = await commentService.getAllCommentsService(
-      +req.params.keyMap,
+      +req.query.keyMap,
       +req.query.fkId
     );
     return res.status(200).json(comments);
