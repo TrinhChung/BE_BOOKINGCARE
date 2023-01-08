@@ -1,8 +1,14 @@
 "use strict";
 const { Model } = require("sequelize");
+import { createUrl } from "../firebase/createUrl";
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
-    static associate(models) {}
+    static associate({ User }) {
+      Comment.belongsTo(User, {
+        foreignKey: "userId",
+        as: "user",
+      });
+    }
   }
   Comment.init(
     {
@@ -17,17 +23,24 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Comment",
       hooks: {
         afterFind: async (instance, options) => {
+          console.log(options);
+          options.include = [];
           if (instance.length > 0) {
             instance = await Promise.all(
               instance.map(async (i, index) => {
-                console.log(index);
-                console.log(i);
+                const user = await sequelize.models.User.findOne({
+                  where: { id: i.userId },
+                  attributes: ["image", "lastName", "firstName"],
+                  raw: true,
+                });
+                if (user.image && user.image.length > 0) {
+                  user.image = createUrl(user.image);
+                }
                 const children = await Comment.findAll({
                   where: { parentId: i.id },
                 });
-                console.log(index);
-                console.log(children);
                 i.comments = children;
+                i.user = user;
                 return i;
               })
             );

@@ -70,15 +70,9 @@ let getAllCommentsService = (keyMap, fkId) => {
     try {
       let comments = await db.Comment.findAll({
         where: { keyMap: keyMap, fkId: fkId, parentId: 0 },
+        raw: true,
+        nested: true,
       });
-      // comments = await Promise.all(
-      //   comments.map(async (comment) => {
-      //     comment.comments = await recursiveComment(comment);
-      //     return comment;
-      //   })
-      // );
-      // console.log(77);
-      // console.log(comments);
 
       resolve({ errMessage: "Ok", errCode: 0, data: comments });
     } catch (error) {

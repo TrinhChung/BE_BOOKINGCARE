@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "doctorId",
       });
 
+      User.hasOne(models.Comment, {
+        foreignKey: "userId",
+        as: "user",
+      });
+
       User.hasOne(models.DoctorInfo, {
         foreignKey: "doctorId",
       });
