@@ -24,6 +24,12 @@ module.exports = {
       token: {
         type: Sequelize.STRING,
       },
+      typeCheck: {
+        type: Sequelize.INTEGER,
+      },
+      reason: {
+        type: Sequelize.STRING,
+      },
       timeType: {
         type: Sequelize.STRING,
       },

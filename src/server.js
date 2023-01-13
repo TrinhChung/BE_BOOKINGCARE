@@ -57,21 +57,18 @@ app.use("/api", router);
 let port = process.env.PORT || 8080;
 
 io.on("connection", (socket) => {
-  socket.emit("hello", "hello");
-
   socket.emit("room-id", 1);
 
-  socket.on("disconnect", () => {
-    socket.broadcast.emit("callEnded");
-  });
-
   socket.on("join-room", (roomId, userId) => {
-    console.log(userId);
     socket.join(roomId);
     socket.to(roomId).emit("user-connected", userId);
 
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", message);
+    });
+
+    socket.on("disconnect", () => {
+      socket.to(roomId).emit("user-disconnected", userId);
     });
   });
 });

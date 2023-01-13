@@ -23,6 +23,7 @@ let postBookAppointmentService = (data, user) => {
         !data.nameDoctor ||
         !data.time ||
         !data.language ||
+        (data.typeCheck !== 0 && data.typeCheck !== 1) ||
         !user
       ) {
         resolve({ errCode: 1, errMessage: "Missing parameter" });
@@ -42,6 +43,8 @@ let postBookAppointmentService = (data, user) => {
             patientId: user.id,
             date: data.date,
             timeType: data.timeType,
+            reason: data.reason,
+            typeCheck: data.typeCheck,
             token: id,
           },
           raw: false,
@@ -91,7 +94,6 @@ let postVerifyBookAppointmentService = (token, id) => {
             },
             raw: false,
           });
-
           appointment.statusId = "S2";
           if (schedule) schedule.currentNumber = schedule.currentNumber + 1;
           if (schedule.currentNumber > 10) {
