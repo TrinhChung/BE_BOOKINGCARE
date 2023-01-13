@@ -6,7 +6,21 @@ import connectDB from "./config/connectDB";
 import cors from "cors";
 require("dotenv").config();
 
-let app = express();
+const app = express();
+
+const { ExpressPeerServer } = require("peer");
+const server = require("http").createServer(app);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+const peerServer = ExpressPeerServer(server, {
+  debug: true,
+});
+app.use("/peerjs", peerServer);
+
 app.use(cors({ origin: true }));
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
@@ -40,8 +54,28 @@ connectDB();
 viewEngine(app);
 app.use("/api", router);
 
-let port = process.env.PORT || 1940;
+let port = process.env.PORT || 8080;
 
-app.listen(port, () => {
+io.on("connection", (socket) => {
+  socket.emit("hello", "hello");
+
+  socket.emit("room-id", 1);
+
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("callEnded");
+  });
+
+  socket.on("join-room", (roomId, userId) => {
+    console.log(userId);
+    socket.join(roomId);
+    socket.to(roomId).emit("user-connected", userId);
+
+    socket.on("message", (message) => {
+      io.to(roomId).emit("createMessage", message);
+    });
+  });
+});
+
+server.listen(port, () => {
   console.log("listening on port: " + port);
 });
