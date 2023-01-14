@@ -11,7 +11,6 @@ import { router as history } from "./history";
 import { router as auth } from "./auth";
 import { router as comment } from "./comment";
 import { router as favorite } from "./favorite";
-import { router as callVideo } from "./callVideo";
 
 export const router = Router();
 
@@ -27,4 +26,3 @@ router.use("/history", history);
 router.use("/auth", auth);
 router.use("/comment", comment);
 router.use("/favorite", favorite);
-router.use("/call-video", callVideo);

@@ -30,3 +30,5 @@ router.delete(
   deleteImage(false),
   userController.handleDeleteUser
 );
+
+router.get("/join-room", userController.joinRoomController);

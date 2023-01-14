@@ -102,6 +102,8 @@ let getAllCode = async (req, res) => {
   }
 };
 
+let joinRoomController = async (req, res) => {};
+
 module.exports = {
   handleLogin: handleLogin,
   handleGetAllUsers: handleGetAllUsers,
@@ -111,4 +113,5 @@ module.exports = {
   getAllCode: getAllCode,
   handleGetUserById: handleGetUserById,
   handleGetUserByToken: handleGetUserByToken,
+  joinRoomController: joinRoomController,
 };

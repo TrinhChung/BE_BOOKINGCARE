@@ -4,21 +4,25 @@ import viewEngine from "./config/viewEngine";
 import { router } from "./route";
 import connectDB from "./config/connectDB";
 import cors from "cors";
+import { eventSocket } from "./controllers/socketController";
 require("dotenv").config();
+import { checkRequestSocket } from "./route/socket";
 
 const app = express();
 
 const { ExpressPeerServer } = require("peer");
 const server = require("http").createServer(app);
-const io = require("socket.io")(server, {
+global.io = require("socket.io")(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
   },
 });
+
 const peerServer = ExpressPeerServer(server, {
   debug: true,
 });
+
 app.use("/peerjs", peerServer);
 
 app.use(cors({ origin: true }));
@@ -55,25 +59,8 @@ viewEngine(app);
 app.use("/api", router);
 
 let port = process.env.PORT || 8080;
-
-io.on("connection", (socket) => {
-  socket.emit("room-id", 1);
-
-  socket.on("join-room", (roomId, userId) => {
-    console.log(userId);
-    socket.join(roomId);
-    socket.to(roomId).emit("user-connected", userId);
-
-    socket.on("message", (message) => {
-      io.to(roomId).emit("createMessage", message);
-    });
-
-    socket.on("disconnect", () => {
-      console.log(userId);
-      socket.to(roomId).emit("user-disconnected", userId);
-    });
-  });
-});
+io.use(checkRequestSocket);
+io.on("connection", eventSocket);
 
 server.listen(port, () => {
   console.log("listening on port: " + port);
