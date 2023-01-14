@@ -203,8 +203,35 @@ let postBookDoctorAcceptService = (data) => {
   });
 };
 
+const getBookingsService = (patientId, typeCheck) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const bookings = await db.Booking.findAll({
+        where: {
+          patientId: patientId,
+          statusId: "S2",
+          typeCheck: typeCheck,
+        },
+        include: [
+          {
+            model: db.AllCode,
+            attributes: ["valueVi", "valueEn"],
+            as: "timeTypeDataBooking",
+          },
+        ],
+        raw: false,
+        nest: true,
+      });
+      resolve({ errCode: 0, data: bookings });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   postBookAppointmentService: postBookAppointmentService,
   postVerifyBookAppointmentService: postVerifyBookAppointmentService,
   postBookDoctorAcceptService: postBookDoctorAcceptService,
+  getBookingsService: getBookingsService,
 };

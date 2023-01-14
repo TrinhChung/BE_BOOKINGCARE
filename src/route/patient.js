@@ -17,6 +17,8 @@ router.get(
   patientController.postVerifyBookAppointment
 );
 
+router.get(`/bookings`, authenticate, patientController.getBookings);
+
 router.post(
   "/booking-doctor-accept",
   authenticate,

@@ -60,6 +60,7 @@ io.on("connection", (socket) => {
   socket.emit("room-id", 1);
 
   socket.on("join-room", (roomId, userId) => {
+    console.log(userId);
     socket.join(roomId);
     socket.to(roomId).emit("user-connected", userId);
 
@@ -68,6 +69,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("disconnect", () => {
+      console.log(userId);
       socket.to(roomId).emit("user-disconnected", userId);
     });
   });

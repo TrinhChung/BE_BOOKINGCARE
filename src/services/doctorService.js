@@ -392,20 +392,30 @@ let getProfileDoctorByIdService = (id) => {
   });
 };
 
-let getListPatientForDoctorService = (id, date, page) => {
+let getListPatientForDoctorService = (id, date, page, typeCheck) => {
   return new Promise(async (resolve, reject) => {
     try {
-      if (!id || !date || !page) {
+      if (!id || !date || !page || !typeCheck) {
         resolve({ errCode: 1, errMessage: "Missing parameters" });
       } else {
         let limit = 10;
         let offset = 0 + (page - 1) * limit;
         let count = await db.Booking.count({
-          where: { doctorId: id, statusId: "S2", date: date },
+          where: {
+            doctorId: id,
+            statusId: "S2",
+            date: date,
+            typeCheck: typeCheck,
+          },
         });
         count = count % 10 === 0 ? count / 10 : parseInt(count / limit) + 1;
         let data = await db.Booking.findAll({
-          where: { doctorId: id, statusId: "S2", date: date },
+          where: {
+            doctorId: id,
+            statusId: "S2",
+            date: date,
+            typeCheck: typeCheck,
+          },
           include: [
             {
               model: db.User,

@@ -94,10 +94,12 @@ let getListPatientForDoctor = async (req, res) => {
         errMessage: "Messing params",
       });
     }
+    const typeCheck = req.query.typeCheck ? req.query.typeCheck : 1;
     let info = await doctorService.getListPatientForDoctorService(
       req.params.id,
       req.query.date,
-      req.query.page
+      req.query.page,
+      typeCheck
     );
     return res.status(200).json(info);
   } catch (error) {
