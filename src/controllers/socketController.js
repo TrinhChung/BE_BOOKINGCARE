@@ -10,7 +10,6 @@ const sendMessage = (socket, roomId) => {
 
 const disconnect = (socket, userId, roomId) => {
   socket.on("disconnect", () => {
-    console.log("Ngắt kết nối: " + userId);
     socket.to(roomId).emit("user-disconnected", userId);
   });
 };
