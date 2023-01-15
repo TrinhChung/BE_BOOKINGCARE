@@ -4,6 +4,7 @@ const eventSocket = (socket) => {
 
 const sendMessage = (socket, roomId) => {
   socket.on("message", (message) => {
+    console.log(message);
     io.to(roomId).emit("newMessage", message);
   });
 };

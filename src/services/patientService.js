@@ -206,7 +206,7 @@ let postBookDoctorAcceptService = (data) => {
 const getBookingsService = (patientId, typeCheck) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const bookings = await db.Booking.findAll({
+      let bookings = await db.Booking.findAll({
         where: {
           patientId: patientId,
           statusId: "S2",
@@ -222,6 +222,14 @@ const getBookingsService = (patientId, typeCheck) => {
         raw: false,
         nest: true,
       });
+      if (bookings.length > 0) {
+        bookings = bookings.map((booking) => {
+          booking.date = LetterCapitalize(
+            moment(new Date(+booking.date)).format("dddd-DD/MM/YYYY")
+          );
+          return booking;
+        });
+      }
       resolve({ errCode: 0, data: bookings });
     } catch (error) {
       reject(error);
