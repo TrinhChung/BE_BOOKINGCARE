@@ -1,11 +1,33 @@
 import db from "../models/index";
-let createNewCommentService = async (data) => {
+import { getUserInfoService } from "./userService";
+import { sendNotification } from "../controllers/socketController";
+let createNewCommentService = async (data, user) => {
   return new Promise(async (resolve, reject) => {
     try {
       await db.Comment.create({
         ...data,
       });
-
+      if (data.keyMap === 1 && Number(data.userId) !== Number(data.fkId)) {
+        const notification = await db.Notification.create({
+          content: `${user.firstName} ${user.lastName} đã bình luận blog của bạn`,
+          type: "doctor",
+          typeId: data.fkId,
+          userId: data.fkId,
+        });
+        sendNotification(notification);
+      }
+      if (data.parentId > 0) {
+        const parent = await getCommentById(data.parentId);
+        const notification = await db.Notification.create({
+          content: `${user.firstName} ${user.lastName} đã trả lời comment của bạn`,
+          type: `comment ${data.keyMap}`,
+          typeId: data.parentId,
+          userId: parent.userId,
+        });
+        if (notification) {
+          sendNotification(notification);
+        }
+      }
       resolve({ errMessage: "Ok", errCode: 0 });
     } catch (error) {
       reject(error);
@@ -96,28 +118,17 @@ let getAllCommentsService = (keyMap, fkId, limit, order) => {
   });
 };
 
-// let recursiveComment = async (comment) => {
-//   let childrenComments = await db.Comment.findAll({
-//     where: {
-//       parentId: comment.id,
-//     },
-//     attributes: {
-//       exclude: ["fkId", "keyMap"],
-//     },
-//   });
-//   console.log("Tham số đầu vào:");
-//   console.log(comment);
-//   console.log("Comment con:");
-//   console.log(childrenComments);
-//   if (childrenComments.length === 0) return {};
-//   childrenComments = childrenComments.map(async (childrenComment) => {
-//     childrenComment.comments = await recursiveComment(childrenComment);
-//     return comment;
-//   });
-//   console.log("kết quả trả về:");
-//   console.log(childrenComments);
-//   return await Promise.all(childrenComments);
-// };
+const getCommentById = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const comment = await db.Comment.findOne({ where: { id: id } });
+      resolve(comment);
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  });
+};
 
 module.exports = {
   createNewCommentService: createNewCommentService,

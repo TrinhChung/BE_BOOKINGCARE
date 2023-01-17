@@ -10,7 +10,10 @@ let createNewComment = async (req, res, next) => {
     ) {
       return res.status(200).json({ error: 1, errMessage: "Missing body" });
     }
-    let comment = await commentService.createNewCommentService(req.body);
+    let comment = await commentService.createNewCommentService(
+      req.body,
+      req.user
+    );
     return res.status(200).json(comment);
   } catch (error) {
     console.log(error);
