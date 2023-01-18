@@ -191,7 +191,7 @@ let postBookDoctorAcceptService = (data) => {
               " " +
               patient.doctorPatientData.firstName;
         await patient.save();
-        await db.History.create({
+        const history = await db.History.create({
           bookingId: patient.id,
           patientId: patient.patientId,
           files: data.file,
@@ -203,6 +203,14 @@ let postBookDoctorAcceptService = (data) => {
           doctorName: nameDoctor,
           language: data.language,
           file: data.file,
+        });
+
+        createNotification({
+          userId: patient.patientId,
+          type: "history",
+          typeId: history.id,
+          content:
+            "Bác sĩ đã xác nhận hoàn thành buổi khám bênh và gửi hóa đơn vui lòng kiểm tra tại lịch sử khám bênh. Chi tiết xem tại gmail",
         });
 
         resolve({ errCode: 0, errMessage: "Save user success" });

@@ -48,7 +48,7 @@ let getHistoryBookingService = (userId, page, limit) => {
         if (bookings && bookings.length > 0) {
           bookings = bookings.map((item) => {
             if (item && item.files) {
-              item.files = createUrl(item.files);
+              item.files = new Buffer(item.files, "base64").toString("binary");
             }
             return item;
           });

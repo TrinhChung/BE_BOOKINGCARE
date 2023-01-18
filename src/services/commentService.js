@@ -1,5 +1,4 @@
 import db from "../models/index";
-import { getUserInfoService } from "./userService";
 import { sendNotification } from "../controllers/socketController";
 let createNewCommentService = async (data, user) => {
   return new Promise(async (resolve, reject) => {
