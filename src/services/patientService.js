@@ -1,7 +1,7 @@
 import db from "../models/index";
 import moment from "moment";
 import bcrypt from "bcryptjs";
-
+import { createNotification } from "./notification";
 import localization from "moment/locale/vi";
 const salt = bcrypt.genSaltSync(10);
 
@@ -62,7 +62,11 @@ let postBookAppointmentService = (data, user) => {
           link: buildUrlEmail(id, data.doctorId),
           language: data.language,
         });
-
+        createNotification({
+          content: "Vui lòng xác thực lịch khám của bạn bằng email!",
+          userId: user.id,
+          type: "email-confirm",
+        });
         resolve({ errCode: 0, errMessage: "Booking Success!" });
       }
     } catch (error) {
@@ -104,6 +108,13 @@ let postVerifyBookAppointmentService = (token, id) => {
           }
           await appointment.save();
           await schedule.save();
+          createNotification({
+            userId: appointment.doctorId,
+            type: "booking",
+            typeId: appointment.id,
+            content:
+              "Có người dùng vừa đặt lịch khám của bạn vui lòng kiểm tra lại danh sách lịch hẹn<3",
+          });
           resolve({
             errCode: 0,
             errMessage: "Update appointment Success",
