@@ -8,3 +8,9 @@ router.get(
   authenticate,
   notificationController.getAllNofiticationByUserId
 );
+
+router.post(
+  "/read",
+  authenticate,
+  notificationController.bulkReaderNotifications
+);

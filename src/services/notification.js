@@ -46,7 +46,27 @@ const getAllNofiticationByUserIdService = (userId, limit) => {
   });
 };
 
+const bulkReaderNotificationService = (notifications, user) => {
+  return new Promise(async (resolve, reject) => {
+    console.log(notifications);
+    const notification = await db.Notification.update(
+      { read: 1 },
+      {
+        where: { id: notifications, userId: user.id },
+      }
+    );
+    console.log(notification);
+    resolve({ errCode: 0, errMessage: "success" });
+    try {
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   createNotification: createNotification,
   getAllNofiticationByUserIdService: getAllNofiticationByUserIdService,
+  bulkReaderNotificationService: bulkReaderNotificationService,
 };

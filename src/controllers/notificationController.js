@@ -1,4 +1,7 @@
-import { getAllNofiticationByUserIdService } from "../services/notification";
+import {
+  getAllNofiticationByUserIdService,
+  bulkReaderNotificationService,
+} from "../services/notification";
 const getAllNofiticationByUserId = async (req, res, next) => {
   try {
     if (!req.user) {
@@ -22,6 +25,30 @@ const getAllNofiticationByUserId = async (req, res, next) => {
   }
 };
 
+const bulkReaderNotifications = async (req, res, next) => {
+  try {
+    if (
+      !req.body ||
+      !req.body.notifications ||
+      req.body.notifications.length === 0
+    ) {
+      return res.status(200).json({
+        errCode: 1,
+        errMessage: "body is invalid",
+      });
+    }
+    const data = await bulkReaderNotificationService(
+      req.body.notifications,
+      req.user
+    );
+    return res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    return res.status(200).json({ errCode: -1, errMessage: "server err" });
+  }
+};
+
 module.exports = {
   getAllNofiticationByUserId: getAllNofiticationByUserId,
+  bulkReaderNotifications: bulkReaderNotifications,
 };
